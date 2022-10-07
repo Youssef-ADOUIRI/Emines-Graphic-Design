@@ -5,6 +5,8 @@ import Informations from "./components/Informations";
 import MainRec from "./components/MainRec";
 import "./components/Navbar";
 import Navbar from "./components/Navbar";
+import News from "./components/News";
+import Parteners from "./components/Parteners";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <ContentRec title="Empowering Moroccan creators/" color="4" />
         <ContentRec title="Empowering Moroccan creators/" color="5" />
         <ContentRec title="Empowering Moroccan creators/" color="3" />
+        <News />
+        <Parteners />
       </body>
       <footer className="App-footer d-flex mb-3 justify-content-between">
         <Informations />

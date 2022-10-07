@@ -1,0 +1,10 @@
+.sponsors{
+    box-sizing: border-box;
+    height: 180;
+    border: 5px solid #000000;
+    border-radius: 26px;
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: center;
+    margin-bottom: 40px;
+}

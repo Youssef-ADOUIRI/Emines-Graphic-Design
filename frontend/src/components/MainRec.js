@@ -7,7 +7,7 @@ function MainRec() {
   return (
     <div className="container MainRec">
       <div className="row"></div>
-      <div className="row bg-light">
+      <div className="row">
         <MainLogo />
       </div>
       <div className="row">
