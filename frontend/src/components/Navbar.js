@@ -20,7 +20,7 @@ function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <ul className="navbar-nav d-flex ms-auto">
+          <ul className="navbar-nav d-flex ms-auto nav-list">
             <li className="nav-item p-2">
               <a className="nav-link active" aria-current="page" href="#">
                 Home
