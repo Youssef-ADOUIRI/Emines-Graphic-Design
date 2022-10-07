@@ -1,0 +1,19 @@
+.form-control {
+    background-color: #F3F3F3;
+}
+
+.contactForm {
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 27px;
+    
+    width: 530px;
+
+    color: #2D2D2D;
+    margin-right: 100px;
+}
+
+.btn{
+    background-color: black;
+    color: white;
+}

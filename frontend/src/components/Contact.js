@@ -4,27 +4,35 @@ import "./Contact.css";
 function Contact() {
   return (
     <section className="contactForm">
-      <div class="mb-3">
-        <label for="FormControlInput1" class="form-label">
-          Email address
-        </label>
-        <input
-          type="email"
-          class="form-control"
-          id="FormControlInput1"
-          placeholder="name@example.com"
-        />
-      </div>
-      <div class="mb-3">
-        <label for="FormControlTextarea1" class="form-label">
-          Example textarea
-        </label>
-        <textarea
-          class="form-control"
-          id="FormControlTextarea1"
-          rows="3"
-        ></textarea>
-      </div>
+      <form>
+        <div class="mb-2">
+          <input
+            type="name"
+            class="form-control rounded-0"
+            id="FormControlInput1"
+            placeholder="Name"
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            type="email"
+            class="form-control rounded-0"
+            id="FormControlInput"
+            placeholder="Email adresse "
+          />
+        </div>
+        <div class="mb-3 ">
+          <textarea
+            class="form-control rounded-0"
+            id="FormControlTextarea1"
+            rows="3"
+            placeholder="Type your message here"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn">
+          Confirm identity
+        </button>
+      </form>
     </section>
   );
 }

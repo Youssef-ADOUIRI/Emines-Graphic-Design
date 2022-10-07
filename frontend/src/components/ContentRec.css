@@ -7,8 +7,6 @@
 }
 
 .title__RecContent {
-    font-family: 'Epilogue';
-    font-style: normal;
     font-weight: 600;
     font-size: 100px;
     line-height: 102px;
@@ -18,8 +16,6 @@
 }
 
 .subtitle__RecContent {
-    font-family: 'Epilogue';
-    font-style: normal;
     font-weight: 400;
     font-size: 15px;
     line-height: 27px;
