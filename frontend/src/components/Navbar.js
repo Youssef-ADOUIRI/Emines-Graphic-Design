@@ -23,17 +23,17 @@ function Navbar() {
           <ul className="navbar-nav d-flex ms-auto nav-list">
             <li className="nav-item p-2">
               <a className="nav-link active" aria-current="page" href="#">
-                Home
+                About
               </a>
             </li>
             <li className="nav-item p-2">
               <a className="nav-link active" href="#">
-                Home2
+                Portfolio
               </a>
             </li>
             <li className="nav-item ms-auto p-2">
               <a className="nav-link active" href="#">
-                Home3
+                Contact
               </a>
             </li>
           </ul>
