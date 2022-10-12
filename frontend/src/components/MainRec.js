@@ -13,7 +13,7 @@ function MainRec() {
       <div className="row">
         <div className="col">{""}</div>
         <div className="col">{""}</div>
-        <div className="col">
+        <div className="col desc">
           ELX IS SOMTH BLA BLA BLA BLABL ?KD?K? YES YES NO Lorem
         </div>
       </div>

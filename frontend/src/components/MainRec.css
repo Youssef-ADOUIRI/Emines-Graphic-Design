@@ -6,8 +6,15 @@
     border-radius: 26px;
     text-align: center;
     margin-bottom: 40px;
+    display: grid;
 }
 
 .MainRec svg {
     margin: auto;
+}
+
+.desc {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
