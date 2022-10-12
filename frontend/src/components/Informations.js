@@ -19,16 +19,16 @@ function Informations() {
       </p>
       <div>
         <a>
-          <i class="bi bi-facebook"></i>
+          <i className="bi bi-facebook"></i>
         </a>
         <a>
-          <i class="bi bi-twitter"></i>
+          <i className="bi bi-twitter"></i>
         </a>
         <a>
-          <i class="bi bi-instagram"></i>
+          <i className="bi bi-instagram"></i>
         </a>
         <a>
-          <i class="bi bi-twitch"></i>
+          <i className="bi bi-twitch"></i>
         </a>
       </div>
       <div className="made_with">

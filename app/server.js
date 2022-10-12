@@ -40,7 +40,7 @@ const model1 = mongoose.model(
   "merged"
 );
 
-app.get("/API/:PrjId", async (req, res) => {
+app.get("/API/:PrjId",  (req, res) => {
   const prjID = req.params.PrjId;
   model1.find({}, (err, doc) => {
     res.send(doc);

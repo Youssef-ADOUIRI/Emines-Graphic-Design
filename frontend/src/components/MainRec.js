@@ -14,7 +14,8 @@ function MainRec() {
         <div className="col">{""}</div>
         <div className="col">{""}</div>
         <div className="col desc">
-          ELX IS SOMTH BLA BLA BLA BLABL ?KD?K? YES YES NO Lorem
+          ELX is a creative design studio based in Rabat and Founded in 2020 by
+          El Houssaine CHAHBOUN.
         </div>
       </div>
     </div>

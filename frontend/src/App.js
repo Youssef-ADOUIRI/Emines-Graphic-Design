@@ -16,10 +16,10 @@ function App() {
       </header>
       <body className="App-body">
         <MainRec />
-        <ContentRec title="Empowering Moroccan creators/" color="1" />
-        <ContentRec title="Empowering Moroccan creators/" color="4" />
-        <ContentRec title="Empowering Moroccan creators/" color="5" />
-        <ContentRec title="Empowering Moroccan creators/" color="3" />
+        <ContentRec title="Empowering Moroccan creators/" color="1" isImg="1" imgUrl="/doc/img1.jpg"/>
+        <ContentRec title="Empowering Moroccan creators/" color="4" isImg="0"/>
+        <ContentRec title="Empowering Moroccan creators/" color="5" isImg="1" imgUrl="/doc/img1.jpg"/>
+        <ContentRec title="Empowering Moroccan creators/" color="3" isImg="0"/>
         <News />
         <Parteners />
       </body>
