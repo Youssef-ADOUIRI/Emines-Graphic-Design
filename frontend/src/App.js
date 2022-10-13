@@ -1,6 +1,6 @@
 import "./App.css";
 import Contact from "./components/Contact";
-import ContentRec from "./components/ContentRec";
+import Feed from "./components/Feed";
 import Informations from "./components/Informations";
 import MainRec from "./components/MainRec";
 import "./components/Navbar";
@@ -9,6 +9,8 @@ import News from "./components/News";
 import Parteners from "./components/Parteners";
 
 function App() {
+  const HOME_PROJECT_NUMBER = 4;
+
   return (
     <div className="App">
       <header className="App-header">
@@ -16,10 +18,7 @@ function App() {
       </header>
       <body className="App-body">
         <MainRec />
-        <ContentRec title="Empowering Moroccan creators/" color="1" isImg="1" imgUrl="/doc/img1.jpg"/>
-        <ContentRec title="Empowering Moroccan creators/" color="4" isImg="0"/>
-        <ContentRec title="Empowering Moroccan creators/" color="5" isImg="1" imgUrl="/doc/img1.jpg"/>
-        <ContentRec title="Empowering Moroccan creators/" color="3" isImg="0"/>
+        <Feed number="5" />
         <News />
         <Parteners />
       </body>

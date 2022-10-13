@@ -40,7 +40,7 @@ function ContentRec(props) {
     back_img = "url(" + url_img + ")";
     Styles.backgroundImage = back_img;
     Styles.backgroundSize = "cover";
-    console.log(color);
+    console.log(props.path_url);
   }
 
   return (
