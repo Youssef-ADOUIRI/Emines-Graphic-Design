@@ -32,15 +32,12 @@ function ContentRec(props) {
       fColor = "white";
       break;
   }
-  let back_img = "";
-  let Styles = { background: color, color: fColor };
+  let Styles = { background: color, color: fColor , backgroundSize : "cover" };
 
   if (props.isImg === "1") {
     const url_img = props.imgUrl;
-    back_img = "url(" + url_img + ")";
+    const back_img = "url(" + url_img + ")";
     Styles.backgroundImage = back_img;
-    Styles.backgroundSize = "cover";
-    console.log(props.path_url);
   }
 
   return (

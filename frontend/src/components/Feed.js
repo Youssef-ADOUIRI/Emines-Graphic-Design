@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 function Feed(props) {
   const n = props.number;
   const Url = "http://localhost:5000";
-  let sections = [];
 
   const [loading, setLoading] = useState(true);
   const [homeProject, setHomeProject] = useState([]);
@@ -19,20 +18,20 @@ function Feed(props) {
       });
       setHomeProject(resp);
       setLoading(false);
-      console.log(resp);
-      console.log(homeProject);
     };
     fetchData();
   }, []);
 
-  if (homeProject.length > 0) {
+  if (homeProject.length > 0 || !loading) {
+    const url_path = homeProject[0].imgs[0].path_url
+    console.log(url_path)
     return (
       <div>
         <ContentRec
           title="Empowering Moroccan creators/"
           color="2"
           isImg="1"
-          imgUrl={toString((homeProject[0].imgs)[0].path_url)}
+          imgUrl = {url_path}
         />
       </div>
     );
