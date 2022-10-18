@@ -30,7 +30,7 @@ function Contact() {
           ></textarea>
         </div>
         <button type="submit" className="btn">
-          Confirm identity
+          Submit
         </button>
       </form>
     </section>
