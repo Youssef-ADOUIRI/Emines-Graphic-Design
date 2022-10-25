@@ -1,5 +1,6 @@
 import React from "react";
 import "./ContentRec.css";
+import { Link } from "react-router-dom";
 
 function ContentRec(props) {
   let color = "black",
@@ -32,7 +33,7 @@ function ContentRec(props) {
       fColor = "white";
       break;
   }
-  let Styles = { background: color, color: fColor , backgroundSize : "cover" };
+  let Styles = { background: color, color: fColor, backgroundSize: "cover" };
 
   if (props.isImg === "1") {
     const url_img = props.imgUrl;
@@ -41,23 +42,25 @@ function ContentRec(props) {
   }
 
   return (
-    <div className="container RecContent" style={Styles}>
-      <div className="row title__RecContent">{props.title}</div>
-      <div className="row">
-        <div className="col subtitle__RecContent">
-          ELX is a creative design studio based in Rabat and Founded in 2020 by
-          El Houssaine CHAHBOUN.
-        </div>
-        <div className="col subtitle__RecContent">
-          ELX is a creative design studio based in Rabat and Founded in 2020 by
-          El Houssaine CHAHBOUN.
-        </div>
-        <div className="col subtitle__RecContent">
-          ELX is a creative design studio based in Rabat and Founded in 2020 by
-          El Houssaine CHAHBOUN.
+    <Link to="/project/default" style={{ textDecoration: "none" }}>
+      <div className="container RecContent" style={Styles}>
+        <div className="row title__RecContent">{props.title}</div>
+        <div className="row">
+          <div className="col subtitle__RecContent">
+            ELX is a creative design studio based in Rabat and Founded in 2020
+            by El Houssaine CHAHBOUN.
+          </div>
+          <div className="col subtitle__RecContent">
+            ELX is a creative design studio based in Rabat and Founded in 2020
+            by El Houssaine CHAHBOUN.
+          </div>
+          <div className="col subtitle__RecContent">
+            ELX is a creative design studio based in Rabat and Founded in 2020
+            by El Houssaine CHAHBOUN.
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
