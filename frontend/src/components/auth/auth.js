@@ -5,8 +5,11 @@ const AuthContext = createContext(null);
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  const login = (user) => {
+  const login = ({user , password}) => {
+    /* check user email-password */
+
     setUser(user);
+    
   };
 
   const logout = () => {
