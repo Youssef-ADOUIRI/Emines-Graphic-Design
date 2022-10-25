@@ -1,6 +1,6 @@
 import React from "react";
 import "./ContentRec.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function ContentRec(props) {
   let color = "black",
@@ -42,7 +42,7 @@ function ContentRec(props) {
   }
 
   return (
-    <Link to="/project/default" style={{ textDecoration: "none" }}>
+    <NavLink to="/project/default" style={{ textDecoration: "none" }}>
       <div className="container RecContent" style={Styles}>
         <div className="row title__RecContent">{props.title}</div>
         <div className="row">
@@ -60,7 +60,7 @@ function ContentRec(props) {
           </div>
         </div>
       </div>
-    </Link>
+    </NavLink>
   );
 }
 
