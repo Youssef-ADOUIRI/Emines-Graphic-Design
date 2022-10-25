@@ -6,16 +6,24 @@ import Home from "./pages/Home";
 import Layout from "./pages/Layout";
 import Project from "./pages/Project";
 import Nopage from "./pages/Nopage";
+import Login  from "./pages/Login";
+
+import Admin from "./pages/Admin";
+import { AuthProvider } from "./components/auth/auth.js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="project/:prjId" element={<Project />} />
-        <Route path="*" element={<Nopage/>}></Route>
-      </Route>
-    </Routes>
-  </BrowserRouter>
+  <AuthProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="project/:prjId" element={<Project />} />
+          <Route path="admin" element={<Admin />}></Route>
+          <Route path="login" element={<Login />}></Route>
+          <Route path="*" element={<Nopage />}></Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  </AuthProvider>
 );

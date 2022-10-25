@@ -1,7 +1,11 @@
 import React from "react";
 import "./Navbar.css";
+import { useAuth } from "../components/auth/auth";
+
 
 function Navbar() {
+  const auth = useAuth();
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container-fluid">
@@ -36,6 +40,11 @@ function Navbar() {
                 Contact
               </a>
             </li>
+            {!auth.user && <li className="nav-item ms-auto p-2">
+              <a className="nav-link active" href="login">
+                Login
+              </a>
+            </li>}
           </ul>
         </div>
       </div>
