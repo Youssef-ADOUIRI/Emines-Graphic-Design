@@ -3,42 +3,59 @@ import { useAuth } from "../components/auth/auth";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [user, setUser] = useState(null);
+  const [email, setEmail] = useState(null);
   const [password, setPass] = useState("");
+  const [errors, setErrors] = useState({});
 
   const auth = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
-  const redirectPath = location.state?.path || '/'
+  const redirectPath = location.state?.path || "/";
 
   const handleLogin = () => {
-    auth.login({ user, password });
+    auth.login({ email, password });
     navigate(redirectPath, { replace: true });
   };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const userData = {
+      email: this.state.email,
+      password: this.state.password,
+    };
+    console.log(userData);
+  };
+
   return (
     <div>
-      <label>
-        Email :{" "}
-        <input
-          type="email"
-          onChange={(e) => {
-            setUser(e.target.value);
-          }}
-        ></input>
-      </label>
-      <br />
-      <label>
-        Password :{" "}
-        <input
-          type="password"
-          onChange={(e) => {
-            setPass(e.target.value);
-          }}
-        ></input>
-      </label>
-      <br />
-      <button onClick={handleLogin}>Handle</button>
+      <form noValidate onSubmit={onSubmit}>
+        <label htmlFor="email">
+          Email :{" "}
+          <input
+            type="email"
+            id="email"
+            error={errors.email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          ></input>
+        </label>
+        <br />
+        <label htmlFor="password">
+          Password :{" "}
+          <input
+            type="password"
+            id="password"
+            error={errors.password}
+            onChange={(e) => {
+              setPass(e.target.value);
+            }}
+          ></input>
+        </label>
+        <br />
+        <button onClick={handleLogin}>Handle</button>
+      </form>
     </div>
   );
 };
