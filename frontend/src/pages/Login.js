@@ -21,8 +21,8 @@ const Login = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     const userData = {
-      email: this.state.email,
-      password: this.state.password,
+      email: email,
+      password: password,
     };
     console.log(userData);
   };
@@ -39,6 +39,7 @@ const Login = () => {
             onChange={(e) => {
               setEmail(e.target.value);
             }}
+            required
           ></input>
         </label>
         <br />
@@ -51,10 +52,11 @@ const Login = () => {
             onChange={(e) => {
               setPass(e.target.value);
             }}
+            required
           ></input>
         </label>
         <br />
-        <button onClick={handleLogin}>Handle</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
