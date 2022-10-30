@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useAuth } from "../components/auth/auth";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../actions/authActions";
 import { useForm } from "react-hook-form";
 
 const Login = () => {
-  const { loading, userInfo, error, success } = useSelector(
+  const { loading, userInfo, error, success  , isAuthenticated} = useSelector(
     (state) => state.auth
   );
   const dispatch = useDispatch();
   const [errors, setErrors] = useState({});
 
-  //const auth = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const { register, handleSubmit } = useForm();
@@ -20,13 +18,12 @@ const Login = () => {
   const redirectPath = location.state?.path || "/";
 
   useEffect(() => {
-    if (userInfo) {
+    if (isAuthenticated) {
       navigate("/admin");
     }
   }, [navigate, userInfo]);
 
   const submitForm = (data) => {
-    console.log(data);
     dispatch(loginUser(data));
   };
 

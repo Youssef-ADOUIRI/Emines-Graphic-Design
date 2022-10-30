@@ -24,26 +24,23 @@ export const registerUser = createAsyncThunk(
   }
 );
 
+//login user
 export const loginUser = createAsyncThunk(
   "user/login",
   async (userData, { rejectWithValue }) => {
     try {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
-      console.log("IN AuthActions : ", userData);
       const data = axios
-        .post("http://localhost:5000/api/users/login", userData, config)
+        .post("http://localhost:5000/api/users/login", userData)
         .then((res) => {
           // Save to localStorage
           // Set token to localStorage
           const { token } = res.data;
-          console.log(res.data);
           localStorage.setItem("userToken", token);
           // Set token to Auth header
           setAuthToken(token);
+          // Decode token to get user data
+          const decoded = jwt_decode(token);
+          console.log("Decoded : \n", decoded);
           // Decode token to get user data
           return res.data;
         });
@@ -59,28 +56,13 @@ export const loginUser = createAsyncThunk(
   }
 );
 
-/*
-// Set logged in user
-export const setCurrentUser = (decoded) => {
-  return {
-    type: SET_CURRENT_USER,
-    payload: decoded,
-  };
-};
-// User loading
-export const setUserLoading = () => {
-  return {
-    type: USER_LOADING,
-  };
-};
-*/
+// // Log user out
+// export const logoutUser = (dispatch) => {
 
-// Log user out
-export const logoutUser = () => (dispatch) => {
-  // Remove token from local storage
-  localStorage.removeItem("jwtToken");
-  // Remove auth header for future requests
-  setAuthToken(false);
-  // Set current user to empty object {} which will set isAuthenticated to false
-  dispatch(setCurrentUser({}));
-};
+//   // Remove token from local storage
+//   localStorage.removeItem("jwtToken");
+//   // Remove auth header for future requests
+//   setAuthToken(false);
+//   // Set current user to empty object {} which will set isAuthenticated to false
+//   dispatch(setCurrentUser({}));
+// };

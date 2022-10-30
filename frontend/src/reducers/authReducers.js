@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { registerUser ,  loginUser} from "../actions/authActions";
+import { registerUser, loginUser } from "../actions/authActions";
+import setAuthToken from "../utils/setAuthToken";
 
 import isEmpty from "is-empty";
 
@@ -9,7 +10,7 @@ const userToken = localStorage.getItem("userToken")
 
 const initialState = {
   isAuthenticated: false,
-  userInfo : {},
+  userInfo: {},
   loading: false,
   userToken,
   error: null,
@@ -20,37 +21,44 @@ const authSilce = createSlice({
   name: "auth",
   initialState: initialState,
   reducers: {
-    
     setCurrentUser(state, action) {
       return {
         ...state,
         isAuthenticated: !isEmpty(action.payload),
-        user: action.payload,
+        userInfo: action.payload,
       };
     },
-    setUserLoading(state, action) {
+    logoutUser(state, action) {
+      console.log("LOOOGEEED OUUUUUT");
+      localStorage.removeItem("userToken");
+      setAuthToken(false);
       return {
         ...state,
-        loading: true,
+        isAuthenticated: false,
+        userInfo: {},
+        userToken: null,
+        success: false,
       };
     },
   },
   extraReducers: {
     // login user
     [loginUser.pending]: (state) => {
-      state.loading = true
-      state.error = null
+      state.loading = true;
+      state.error = null;
     },
     [loginUser.fulfilled]: (state, { payload }) => {
-      
-      state.loading = false
-      state.userInfo = payload
-      state.userToken = payload.token
+      state.isAuthenticated = true;
+      state.loading = false;
+      state.userInfo = payload;
+      state.userToken = payload.token;
     },
     [loginUser.rejected]: (state, { payload }) => {
-      state.loading = false
-      state.error = payload
+      state.isAuthenticated = false;
+      state.loading = false;
+      state.error = payload;
     },
+
     // register user
     [registerUser.pending]: (state) => {
       state.loading = true;
@@ -67,5 +75,5 @@ const authSilce = createSlice({
   },
 });
 
-export const { setCurrentUser, setUserLoading } = authSilce.actions;
+export const { setCurrentUser, setUserLoading , logoutUser } = authSilce.actions;
 export default authSilce.reducer;
