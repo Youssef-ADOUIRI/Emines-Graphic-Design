@@ -17,25 +17,23 @@ import RequireAuth from "./components/auth/RequireAuth";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-    <AuthProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="project/:prjId" element={<Project />} />
-            <Route
-              path="admin"
-              element={
-                <RequireAuth>
-                  <Admin />
-                </RequireAuth>
-              }
-            ></Route>
-            <Route path="login" element={<Login />}></Route>
-            <Route path="*" element={<Nopage />}></Route>
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </AuthProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="project/:prjId" element={<Project />} />
+          <Route
+            path="admin"
+            element={
+              <RequireAuth>
+                <Admin />
+              </RequireAuth>
+            }
+          ></Route>
+          <Route path="login" element={<Login />}></Route>
+          <Route path="*" element={<Nopage />}></Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </Provider>
 );
