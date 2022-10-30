@@ -24,7 +24,6 @@ function Feed(props) {
 
   if (homeProject.length > 0 || !loading) {
     const url_path = homeProject[0].imgs[0].path_url;
-    console.log(homeProject);
     return (
       <div>
         <ContentRec title={homeProject[0].nom} color="5" isImg="0" />

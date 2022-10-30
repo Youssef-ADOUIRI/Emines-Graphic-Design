@@ -1,13 +1,21 @@
-import React from "react";
-import { useAuth } from "./auth";
-import { Navigate , useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { NavLink, Outlet } from "react-router-dom";
 
 const RequireAuth = ({children}) => {
-  const auth = useAuth();
-  const location = useLocation();
-  if(!auth.user){
-    return <Navigate to='/login' state={{path:location.pathname}}></Navigate>
+  const { userInfo } = useSelector((state) => state.auth);
+
+  // show unauthorized screen if no user is found in redux store
+  if (!userInfo) {
+    return (
+      <div className="unauthorized">
+        <h1>Unauthorized :(</h1>
+        <span>
+          <NavLink to="/login">Login</NavLink> to gain access
+        </span>
+      </div>
+    );
   }
+
   return children;
 };
 
