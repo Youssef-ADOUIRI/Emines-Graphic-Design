@@ -9,9 +9,7 @@ import Layout from "./pages/Layout";
 import Project from "./pages/Project";
 import Nopage from "./pages/Nopage";
 import Login from "./pages/Login";
-
 import Admin from "./pages/Admin";
-import { AuthProvider } from "./components/auth/auth.js";
 import RequireAuth from "./components/auth/RequireAuth";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

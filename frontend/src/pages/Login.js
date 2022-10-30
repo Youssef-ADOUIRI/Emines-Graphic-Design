@@ -6,7 +6,9 @@ import { loginUser } from "../actions/authActions";
 import { useForm } from "react-hook-form";
 
 const Login = () => {
-  const { loading, userInfo, error } = useSelector((state) => state.auth);
+  const { loading, userInfo, error, success } = useSelector(
+    (state) => state.auth
+  );
   const dispatch = useDispatch();
   const [errors, setErrors] = useState({});
 
@@ -17,24 +19,12 @@ const Login = () => {
 
   const redirectPath = location.state?.path || "/";
 
-  /*
-  const handleLogin = () => {
-    auth.login({ email, password });
-    navigate(redirectPath, { replace: true });
-  };
-  */
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/admin");
+    }
+  }, [navigate, userInfo]);
 
-  /*
-  const onSubmit = (e) => {
-    e.preventDefault();
-    const userData = {
-      email: email,
-      password: password,
-    };
-    console.log(userData);
-    dispatch(userLogin(data));
-  };
-  */
   const submitForm = (data) => {
     console.log(data);
     dispatch(loginUser(data));

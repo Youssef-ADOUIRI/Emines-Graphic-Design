@@ -1,10 +1,8 @@
 import React from "react";
 import "./Navbar.css";
-import { useAuth } from "../components/auth/auth";
 import { NavLink } from "react-router-dom";
 
 function Navbar() {
-  const auth = useAuth();
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
@@ -40,7 +38,7 @@ function Navbar() {
                 Contact
               </NavLink>
             </li>
-            {!auth.user && (
+            { /*!auth.user && */(
               <li className="nav-item ms-auto p-2">
                 <NavLink to="/login" className="nav-link active">
                   Login
