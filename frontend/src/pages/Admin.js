@@ -12,9 +12,7 @@ const Admin = () => {
   };
   return (
     <div>
-      Welcome {"YOU"}
-      <br />
-      <button onClick={handleLogout}> Logout</button>
+      
     </div>
   );
 };

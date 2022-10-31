@@ -1,0 +1,52 @@
+.loginSection {
+    background-size: contain;
+    position: absolute;
+    top: 75px;
+    bottom: 48px;
+    right: 55px;
+    left: 55px;
+    border: 5px solid #000000;
+    border-radius: 26px;
+    background-color: white;
+}
+
+.loginSection form {
+    display: flex;
+    flex-direction: column;
+}
+
+.title_admin {
+    font-weight: 600;
+    font-size: 80px;
+    line-height: 102px;
+    color: white;
+    margin-top: 100px;
+    margin-left: 73px;
+}
+
+input {
+    width: 350px;
+    height: 50px;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 27px;
+    background-color: #F3F3F3;
+    color: #2D2D2D;
+    margin-left: 72px;
+    margin-top: 12px;
+}
+
+input::placeholder {
+    padding-left: 15px;
+}
+
+button {
+    width: 200px;
+    height: 60px;
+    margin-top: 34px;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 27px;
+    color: #2D2D2D;
+    margin-left: 72px;
+}
