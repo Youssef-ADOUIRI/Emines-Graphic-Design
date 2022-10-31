@@ -5,6 +5,7 @@ import { setCurrentUser, setUserLoading } from "../reducers/authReducers";
 import { getErrors } from "../reducers/errorReducers";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
+
 // Register User
 export const registerUser = createAsyncThunk(
   "user/register",

@@ -25,11 +25,10 @@ const authSilce = createSlice({
       return {
         ...state,
         isAuthenticated: !isEmpty(action.payload),
-        userInfo: action.payload,
+        userInfo: action.payload.userdata,
       };
     },
     logoutUser(state, action) {
-      console.log("LOOOGEEED OUUUUUT");
       localStorage.removeItem("userToken");
       setAuthToken(false);
       return {
@@ -38,7 +37,7 @@ const authSilce = createSlice({
         userInfo: {},
         userToken: null,
         success: false,
-        error:null
+        error: null,
       };
     },
   },
@@ -76,5 +75,5 @@ const authSilce = createSlice({
   },
 });
 
-export const { setCurrentUser, setUserLoading , logoutUser } = authSilce.actions;
+export const { setCurrentUser, setUserLoading, logoutUser } = authSilce.actions;
 export default authSilce.reducer;
