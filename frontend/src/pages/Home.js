@@ -12,12 +12,12 @@ function Home() {
 
   return (
     <div className="App">
-      <body className="App-body">
+      <div className="App-body">
         <MainRec />
         <Feed number="5" />
         <News />
         <Parteners />
-      </body>
+      </div>
       <footer className="App-footer d-flex mb-3 justify-content-between">
         <Informations />
         <Contact />
