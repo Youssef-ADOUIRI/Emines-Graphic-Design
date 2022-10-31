@@ -38,6 +38,7 @@ const authSilce = createSlice({
         userInfo: {},
         userToken: null,
         success: false,
+        error:null
       };
     },
   },
@@ -50,7 +51,7 @@ const authSilce = createSlice({
     [loginUser.fulfilled]: (state, { payload }) => {
       state.isAuthenticated = true;
       state.loading = false;
-      state.userInfo = payload;
+      state.userInfo = payload.userdata;
       state.userToken = payload.token;
     },
     [loginUser.rejected]: (state, { payload }) => {

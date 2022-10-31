@@ -29,7 +29,7 @@ export const loginUser = createAsyncThunk(
   "user/login",
   async (userData, { rejectWithValue }) => {
     try {
-      const data = axios
+      const access = axios
         .post("http://localhost:5000/api/users/login", userData)
         .then((res) => {
           // Save to localStorage
@@ -40,11 +40,17 @@ export const loginUser = createAsyncThunk(
           setAuthToken(token);
           // Decode token to get user data
           const decoded = jwt_decode(token);
-          console.log("Decoded : \n", decoded);
+          //adding token to payload
+          //decoded["token"] = token;
           // Decode token to get user data
-          return res.data;
+          return {
+            token: token,
+            id: decoded.id,
+            success: decoded.success,
+            userdata: { name: decoded.name, email: decoded.email },
+          };
         });
-      return data;
+      return access;
     } catch (error) {
       // return custom error message from API if any
       if (error.response && error.response.data.message) {
