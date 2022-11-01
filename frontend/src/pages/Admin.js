@@ -1,18 +1,15 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { logoutUser } from "../reducers/authReducers";
+import Usernav from "../components/Usernav";
+import { Outlet } from "react-router-dom";
+import "./Admin.css"
 
 const Admin = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const handleLogout = () => {
-    dispatch(logoutUser());
-    navigate("/");
-  };
   return (
     <div>
-      <button type="submit" onSubmit={handleLogout}> Logout </button>
+      <Usernav />
+      <div className="main_section">
+        <Outlet />
+      </div>
     </div>
   );
 };

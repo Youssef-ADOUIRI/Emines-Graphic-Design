@@ -11,6 +11,9 @@ import Nopage from "./pages/Nopage";
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import RequireAuth from "./components/auth/RequireAuth";
+import Usernav from "./components/Usernav";
+import UploadProject from "./pages/UploadProject";
+import Account from "./pages/Account";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -27,7 +30,11 @@ root.render(
                 <Admin />
               </RequireAuth>
             }
-          ></Route>
+          >
+            <Route index element={<UploadProject />} />
+            <Route path="upload" element={<UploadProject />} />
+            <Route path="account" element={<Account />} />
+          </Route>
           <Route path="login" element={<Login />}></Route>
           <Route path="*" element={<Nopage />}></Route>
         </Route>
