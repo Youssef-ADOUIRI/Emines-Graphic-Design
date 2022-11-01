@@ -2,7 +2,7 @@ import axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import {setErrors} from "../reducers/errorReducers"
+import { setErrors } from "../reducers/errorReducers";
 
 // Register User
 export const registerUser = createAsyncThunk(
@@ -38,6 +38,7 @@ export const loginUser = createAsyncThunk(
         setAuthToken(token);
         // Decode token to get user data
         const decoded = jwt_decode(token);
+        dispatch(setErrors(null));
         //adding token to payload
         //decoded["token"] = token;
         // Decode token to get user data
