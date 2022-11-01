@@ -12,7 +12,7 @@ function UploadProject() {
   };
   return (
     <div>
-      <button type="submit" onSubmit={handleLogout}>
+      <button type="submit" onClick={handleLogout}>
         Logout
       </button>
     </div>
