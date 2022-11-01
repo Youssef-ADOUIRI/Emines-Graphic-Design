@@ -12,7 +12,7 @@ const Admin = () => {
   };
   return (
     <div>
-      
+      <button type="submit" onSubmit={handleLogout}> Logout </button>
     </div>
   );
 };

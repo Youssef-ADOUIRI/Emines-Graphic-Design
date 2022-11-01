@@ -9,6 +9,7 @@ const Login = () => {
   const { loading, userInfo, error, success, isAuthenticated } = useSelector(
     (state) => state.auth
   );
+  const err = useSelector((state) => state.err);
   const dispatch = useDispatch();
   const [errors, setErrors] = useState({});
 
@@ -35,7 +36,9 @@ const Login = () => {
     >
       <h1 className="title_admin">Admin</h1>
       <form noValidate onSubmit={handleSubmit(submitForm)}>
-        {error && <span style={{ color: "red" }}>{error}</span>}
+
+        {err.email && <span style={{ color: "red" }}>{err.email}</span>}
+        {err.emailnotfound && <span style={{ color: "red" }}>{err.emailnotfound}</span>}
 
         <input
           type="email"
@@ -46,6 +49,8 @@ const Login = () => {
           placeholder="Email"
         ></input>
 
+        {err.password && <span style={{ color: "red"}}>{err.password}</span>}
+        {err.passwordincorrect && <span style={{ color: "red"}}>{err.passwordincorrect}</span>}
         <input
           type="password"
           id="password"
