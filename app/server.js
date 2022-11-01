@@ -7,6 +7,7 @@ const passport = require("passport");
 const port = 5000;
 
 const users = require("./routes/api/users");
+const projects = require("./routes/api/projects");
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -32,35 +33,8 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 // Routes
 app.use("/api/users", users);
-
-const model1 = mongoose.model(
-  "Merged",
-  new mongoose.Schema({
-    id: Number,
-    nom: String,
-    imgs: [
-      {
-        id: Number,
-        path_url: String,
-        ext: String,
-        width: Number,
-        height: Number,
-        alt: String,
-      },
-    ],
-  }),
-  "merged"
-);
-
-app.get("/API/:PrjId", (req, res) => {
-  console.log("API is reached");
-  const prjID = req.params.PrjId;
-  model1.find({}, (err, doc) => {
-    res.send(doc);
-  });
-});
-
+app.use("/api/projects", projects);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Backend app listening on port ${port}`);
 });

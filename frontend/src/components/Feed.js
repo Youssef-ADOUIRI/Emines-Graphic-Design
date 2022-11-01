@@ -13,7 +13,7 @@ function Feed(props) {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const resp = await axios.get(Url + "/API/1").then((resp) => {
+      const resp = await axios.get(Url + "/api/projects/1").then((resp) => {
         return resp.data;
       });
       setHomeProject(resp);
@@ -27,10 +27,19 @@ function Feed(props) {
     return (
       <div>
         <ContentRec title={homeProject[0].nom} color="5" isImg="0" />
-        <ContentRec title={homeProject[0].nom} color="2" isImg="1" imgUrl={url_path} />
+        <ContentRec
+          title={homeProject[0].nom}
+          color="2"
+          isImg="1"
+          imgUrl={url_path}
+        />
         <ContentRec title={homeProject[1].nom} color="3" isImg="0" />
-        <ContentRec title={homeProject[1].nom} color="3" isImg="1" imgUrl={homeProject[1].imgs[0].path_url}/>
-
+        <ContentRec
+          title={homeProject[1].nom}
+          color="3"
+          isImg="1"
+          imgUrl={homeProject[1].imgs[0].path_url}
+        />
       </div>
     );
   } else {

@@ -38,7 +38,7 @@ export const loginUser = createAsyncThunk(
         setAuthToken(token);
         // Decode token to get user data
         const decoded = jwt_decode(token);
-        dispatch(setErrors(null));
+        dispatch(setErrors({}));
         //adding token to payload
         //decoded["token"] = token;
         // Decode token to get user data
