@@ -43,9 +43,9 @@ function ContentRec(props) {
 
   return (
     <NavLink to="/project/default" style={{ textDecoration: "none" }}>
-      <div className="container RecContent" style={Styles}>
+      <div className="RecContent container full-height d-flex flex-column" style={Styles}>
         <div className="row title__RecContent">{props.title}</div>
-        <div className="row">
+        <div className="row mt-auto">
           <div className="col subtitle__RecContent">
             ELX is a creative design studio based in Rabat and Founded in 2020
             by El Houssaine CHAHBOUN.

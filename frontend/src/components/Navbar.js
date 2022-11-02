@@ -35,7 +35,7 @@ function Navbar() {
         navigate("/login");
       }
     }
-  } , [userToken]);
+  }, [userToken]);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
