@@ -28,7 +28,7 @@ export const loginUser = createAsyncThunk(
   "user/login",
   async (userData, { rejectWithValue, dispatch }) => {
     const access = axios
-      .post("http://localhost:5000/api/users/login", userData)
+      .post("/api/users/login", userData)
       .then((res) => {
         // Save to localStorage
         // Set token to localStorage
