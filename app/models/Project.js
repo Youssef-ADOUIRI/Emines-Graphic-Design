@@ -2,15 +2,19 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-  id: { type: Number, required: true },
-  nom: String,
+  title: { type: String, required: true },
+  owner: { type: Schema.Types.ObjectId, required: true },
+  cardType: Number,
+  parag1: String,
+  parag2: String,
+  gradient: [{ hex1: String, hex2: String }],
+  date: { type: Date, default: Date.now },
+  hidden: Boolean,
   imgs: [
     {
       id: Number,
       path_url: String,
       ext: String,
-      width: Number,
-      height: Number,
       alt: String,
     },
   ],

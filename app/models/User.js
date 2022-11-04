@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
   name: {
-    type: String,
-    required: true,
+    firstName: { type: String, required: true },
+    lastName: { type: String, required: true },
   },
   email: {
     type: String,
@@ -14,9 +14,16 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
-  date: {
+  birthdate: {
+    type: Date,
+  },
+  instagramAccount: {
+    type: String,
+  },
+  creationDate: {
     type: Date,
     default: Date.now,
   },
 });
+
 module.exports = User = mongoose.model("users", UserSchema);

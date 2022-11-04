@@ -1,4 +1,4 @@
 module.exports = {
-  mongoURI: "mongodb://localhost:27017/EGD_db",
+  mongoURI: "mongodb+srv://admin_user:COBprr0pfn9YhEpH@egd-cluster.si4tr9i.mongodb.net/?retryWrites=true&w=majority",
   secretOrKey: "secret",
 };

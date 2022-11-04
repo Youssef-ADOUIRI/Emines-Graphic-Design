@@ -40,7 +40,7 @@ function ContentRec(props) {
     const back_img = "url(" + url_img + ")";
     Styles.backgroundImage = back_img;
   }
-
+  
   return (
     <NavLink to="/project/default" style={{ textDecoration: "none" }}>
       <div className="RecContent container full-height d-flex flex-column" style={Styles}>
