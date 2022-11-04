@@ -23,7 +23,7 @@ const Client = mongoose
       console.log("Database is connected");
     },
     (err) => {
-      console.log("Cannot connect to the database : " + err);
+      console.error("Cannot connect to the database : " + err);
     }
   );
 

@@ -20,4 +20,4 @@ const UserSchema = new Schema({
   ],
 });
 
-module.exports = Project = mongoose.model("merged", UserSchema, "merged");
+module.exports = Project = mongoose.model("projects", UserSchema);
