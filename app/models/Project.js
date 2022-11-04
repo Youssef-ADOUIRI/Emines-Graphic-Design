@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const UserSchema = new Schema({
+const ProjectSchema = new Schema({
   title: { type: String, required: true },
   owner: { type: Schema.Types.ObjectId, required: true },
   cardType: Number,
@@ -20,4 +20,4 @@ const UserSchema = new Schema({
   ],
 });
 
-module.exports = Project = mongoose.model("projects", UserSchema);
+module.exports = Project = mongoose.model("projects", ProjectSchema);
