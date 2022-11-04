@@ -17,7 +17,7 @@ const UserSchema = new Schema({
   instagramAccount: {
     type: String,
   },
-  isSudo: Boolean,
+  isAdmin: Boolean,
   creationDate: {
     type: Date,
     default: Date.now,
