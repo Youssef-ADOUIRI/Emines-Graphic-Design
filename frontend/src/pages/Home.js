@@ -6,6 +6,7 @@ import MainRec from "../components/MainRec";
 import "../components/Navbar";
 import News from "../components/News";
 import Parteners from "../components/Parteners";
+import FAQ from "../components/FAQ";
 
 function Home() {
   //const HOME_PROJECT_NUMBER = 4;
@@ -17,6 +18,7 @@ function Home() {
         <Feed number="5" />
         <News />
         <Parteners />
+        <FAQ/>
       </div>
       <footer className="App-footer d-flex mb-3 justify-content-between">
         <Informations />
