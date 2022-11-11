@@ -1,0 +1,71 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.boite {border: 5px solid rgb(0, 0, 0);
+    width: 1543px;
+height: auto;
+
+top: 5229px;
+border: 5px solid #000000;
+border-radius: 26px;
+margin:auto;
+
+
+}
+body {
+    font-family: Raleway, sans-serif;
+}
+h1 {
+    text-align: center;
+    padding: 35px 0;
+    font-size: 100px;
+
+}
+.container-faq {
+    
+    margin : 1em;
+    height: auto;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.questions {
+    width: 100%;
+    height: auto;
+    margin: 5px;
+}
+.visible-pannel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    background: #ffffff;
+    border-radius: 10px;
+    z-index: 100;
+    
+}
+.visible-pannel h2 {
+    
+    padding: 15px 5px;
+    font-size: 32px;
+}
+.visible-pannel img {
+    width: 25px;
+    cursor: pointer;
+}
+.toggle-pannel {
+    padding: 0px 15px;
+    height: 0px;
+    opacity: 0;
+}
+.toggle-pannel h4 {
+    font-size: 18px;
+    padding-bottom: 10px;
+}
+.toggle-pannel p {
+    line-height: 1.5;
+}
