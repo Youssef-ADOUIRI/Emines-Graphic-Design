@@ -8,6 +8,7 @@ const port = 5000;
 
 const users = require("./routes/api/users");
 const projects = require("./routes/api/projects");
+const testconnection = require("./routes/api/connectionTest");
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -32,6 +33,7 @@ app.use(passport.initialize());
 // Passport config
 require("./config/passport")(passport);
 // Routes
+app.use("/api/testconnection", testconnection);
 app.use("/api/users", users);
 app.use("/api/projects", projects);
 

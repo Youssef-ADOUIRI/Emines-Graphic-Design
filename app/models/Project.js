@@ -7,13 +7,15 @@ const ProjectSchema = new Schema({
   cardType: Number,
   parag1: String,
   parag2: String,
-  gradient: [{ hex1: String, hex2: String }],
+  //gradient
+  hex1: String,
+  hex2: String,
   date: { type: Date, default: Date.now },
   hidden: Boolean,
   imgs: [
     {
-      id: Number,
-      path_url: String,
+      id: { type: Number, required: true },
+      path_url: { type: String, required: true },
       ext: String,
       alt: String,
     },

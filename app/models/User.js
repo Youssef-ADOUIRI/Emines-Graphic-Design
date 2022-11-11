@@ -11,13 +11,13 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
-  birthdate: {
-    type: Date,
+  description: {
+    type: String,
   },
   instagramAccount: {
     type: String,
   },
-  isAdmin: Boolean,
+  isAdmin: { type: Boolean, default: false },
   creationDate: {
     type: Date,
     default: Date.now,

@@ -36,8 +36,6 @@ const Login = () => {
     >
       <h1 className="title_admin">Admin</h1>
       <form noValidate onSubmit={handleSubmit(submitForm)}>
-
-        
         {err.email && <span style={{ color: "red" }}>{err.email}</span>}
         {err.emailnotfound && (
           <span style={{ color: "red" }}>{err.emailnotfound}</span>

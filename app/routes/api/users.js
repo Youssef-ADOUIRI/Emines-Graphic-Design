@@ -28,6 +28,8 @@ router.post("/register", (req, res) => {
       const newUser = new User({
         name: req.body.name,
         email: req.body.email,
+        description: req.body.description,
+        instagramAccount: req.body.instagramAccount,
         password: req.body.password,
       });
       // Hash password before saving in database
@@ -71,9 +73,13 @@ router.post("/login", (req, res) => {
         // User matched
         // Create JWT Payload
         const payload = {
-          id: user.id,
+          id: user._id,
           name: user.name,
           email: user.email,
+          description: user.description,
+          instagramAccount: user.instagramAccount,
+          isAdmin: user.isAdmin,
+          creationDate: user.creationDate,
         };
         // Sign token
         jwt.sign(
