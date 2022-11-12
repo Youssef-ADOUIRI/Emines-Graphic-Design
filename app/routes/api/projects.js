@@ -37,9 +37,15 @@ router.post("/add", (req, res) => {
 router.get("/get/:id", (req, res) => {
   console.log("API GET api/projects/get/:id is reached");
   const prjID = req.params.id;
-  Project.find({ _id: prjID }, (err, doc) => {
-    res.send(doc);
-  });
+  if (prjID >= 0)
+    Project.find({ _id: prjID }, (err, doc) => {
+      res.send(doc);
+    });
+  else {
+    Project.find({}, (err, doc) => {
+      res.send(doc);
+    });
+  }
 });
 
 module.exports = router;

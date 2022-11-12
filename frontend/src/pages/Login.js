@@ -32,7 +32,7 @@ const Login = () => {
   return (
     <div
       className="loginSection"
-      style={{ backgroundImage: "url(/documents/admin/admin_background.png)" }}
+      style={{ backgroundImage: "url(/doc/admin/admin_background.png)" }}
     >
       <h1 className="title_admin">Admin</h1>
       <form noValidate onSubmit={handleSubmit(submitForm)}>

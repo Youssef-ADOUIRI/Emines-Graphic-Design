@@ -44,9 +44,12 @@ export const loginUser = createAsyncThunk(
         // Decode token to get user data
         return {
           token: token,
-          id: decoded.id,
           success: decoded.success,
-          userdata: { name: decoded.name, email: decoded.email },
+          userdata: {
+            id: decoded.id,
+            name: decoded.name,
+            email: decoded.email,
+          },
         };
       })
       .catch((error) => {

@@ -21,7 +21,8 @@
     line-height: 102px;
     color: white;
     margin-top: 100px;
-    margin-left: 73px;
+    margin-left: 5rem;
+    text-align: start;
 }
 
 input {
@@ -51,7 +52,7 @@ button {
     margin-left: 72px;
 }
 
-span{
+span {
     margin-left: 72px;
     margin-top: 10px;
 }

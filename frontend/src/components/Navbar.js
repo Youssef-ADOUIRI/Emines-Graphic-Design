@@ -13,7 +13,7 @@ function Navbar() {
   );
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  //using the navbar to manage token
   useEffect(() => {
     if (userToken) {
       setAuthToken(userToken);
@@ -21,9 +21,12 @@ function Navbar() {
       dispatch(
         setCurrentUser({
           token: userToken,
-          id: decoded.id,
           success: decoded.success,
-          userdata: { name: decoded.name, email: decoded.email },
+          userdata: {
+            id: decoded.id,
+            name: decoded.name,
+            email: decoded.email,
+          },
         })
       );
       // Check for expired token

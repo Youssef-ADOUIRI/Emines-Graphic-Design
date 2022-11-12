@@ -8,38 +8,38 @@ function Feed(props) {
   const Url = "http://localhost:5000";
 
   const [loading, setLoading] = useState(true);
-  const [homeProject, setHomeProject] = useState([]);
+  const [homeProjects, setHomeProjects] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const resp = await axios.get(Url + "/api/projects/1").then((resp) => {
-        return resp.data;
-      });
-      setHomeProject(resp);
+      const resp = await axios
+        .get("/api/projects/get/-1")
+        .then((resp) => {
+          return resp.data;
+        })
+        .catch((e) => console.log(e));
+      setHomeProjects(resp);
       setLoading(false);
     };
     fetchData();
   }, []);
 
-  if (homeProject.length > 0 || !loading) {
-    const url_path = homeProject[0].imgs[0].path_url;
+  if (homeProjects.length > 0 || !loading) {
     return (
       <div>
-        <ContentRec title={homeProject[0].nom} color="5" isImg="0" />
-        <ContentRec
-          title={homeProject[0].nom}
-          color="2"
-          isImg="1"
-          imgUrl={url_path}
-        />
-        <ContentRec title={homeProject[1].nom} color="3" isImg="0" />
-        <ContentRec
-          title={homeProject[1].nom}
-          color="3"
-          isImg="1"
-          imgUrl={homeProject[1].imgs[0].path_url}
-        />
+        {homeProjects.map((project, i) => {
+          const isImg = project.imgs.length > 0 ? true : false;
+          return (
+            <ContentRec
+              title={project.title}
+              hex1={project.hex1}
+              hex2={project.hex2}
+              isImg={isImg}
+              imgUrl={isImg ? project.imgs[0].path_url : ""}
+            />
+          );
+        })}
       </div>
     );
   } else {
