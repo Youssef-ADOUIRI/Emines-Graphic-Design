@@ -8,7 +8,6 @@ module.exports = function validateAddProjectInput(data) {
   data.owner = !isEmpty(data.owner) ? data.owner : "";
   data.imgs = !isEmpty(data.owner) ? data.imgs : [];
 
-  console.log(data);
   if (Validator.isEmpty(data.title)) {
     errors.title = "Title field is required";
   }

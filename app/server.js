@@ -4,7 +4,8 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const passport = require("passport");
-const port = 5000;
+
+const port = process.env.PORT || 5000;
 
 const users = require("./routes/api/users");
 const projects = require("./routes/api/projects");
@@ -13,6 +14,7 @@ const testconnection = require("./routes/api/connectionTest");
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use("/public/images", express.static(__dirname + "/public/images/"));
 
 const db = require("./config/keys").mongoURI;
 const Client = mongoose
