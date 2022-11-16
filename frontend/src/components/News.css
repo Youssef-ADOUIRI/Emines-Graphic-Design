@@ -9,15 +9,22 @@
     margin-bottom: 40px;
 }
 
+
 .title__updates {
     font-weight: 600;
     font-size: 100px;
     line-height: 102px;
     color: #150E0E;
+    text-align: start;
 }
 
 .UpdatesRec h2 {
     font-weight: 600;
     font-size: 32px;
     line-height: 42px;
+    text-align: start;
+}
+
+.UpdatesRec p{
+    text-align: start;
 }
