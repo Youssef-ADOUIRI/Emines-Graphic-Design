@@ -1,0 +1,44 @@
+.upload_project_section {
+    background-color: black;
+}
+
+.section_title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 70px;
+    line-height: 85px;
+    text-align: start;
+    margin-left: 1rem;
+    padding: 0;
+}
+
+* {
+    text-align: start;
+    color: white;
+}
+
+.upload_project_input input {
+    margin-left: 0;
+    margin-bottom: 10px;
+}
+
+#hexs input {
+    padding: 0;
+    border: none;
+    border-radius: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+#hexs input::-webkit-color-swatch {
+    border: none;
+    border-radius: 20px;
+    padding: 0;
+}
+
+#hexs input::-webkit-color-swatch-wrapper {
+    border: none;
+    border-radius: 20px;
+    padding: 0;
+}
