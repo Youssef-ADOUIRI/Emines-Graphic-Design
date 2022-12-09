@@ -6,7 +6,7 @@ module.exports = function validateAddProjectInput(data) {
   // Convert empty fields to an empty string so we can use validator functions
   data.title = !isEmpty(data.title) ? data.title : "";
   data.owner = !isEmpty(data.owner) ? data.owner : "";
-  data.imgs = !isEmpty(data.owner) ? data.imgs : [];
+  data.images = !isEmpty(data.images) ? data.images : [];
 
   if (Validator.isEmpty(data.title)) {
     errors.title = "Title field is required";
@@ -14,23 +14,23 @@ module.exports = function validateAddProjectInput(data) {
   if (Validator.isEmpty(data.owner)) {
     errors.owner = "The creator is not not given";
   }
-  if (data.imgs.length !== 0) {
-    for (let i = 0; i < data.imgs.length; i++) {
-      //check id and path
-      data.imgs[i].id = !isEmpty(data.imgs[i].id) ? data.imgs[i].id : "";
-      data.imgs[i].path_url = !isEmpty(data.imgs[i].path_url)
-        ? data.imgs[i].path_url
-        : "";
-      if (Validator.isEmpty(data.imgs[i].id.toString())) {
-        errors.imgs = "The id of the " + i + " image is not defined ";
-        break;
-      }
-      if (Validator.isEmpty(data.imgs[i].path_url)) {
-        errors.imgs = "The path_url of the " + i + " image is not defined ";
-        break;
-      }
-    }
-  }
+  // if (data.images.length !== 0) {
+  //   for (let i = 0; i < data.images.length; i++) {
+  //     //check id and path
+  //     data.images[i].id = !isEmpty(data.images[i].id) ? data.images[i].id : "";
+  //     data.images[i].path_url = !isEmpty(data.images[i].path_url)
+  //       ? data.images[i].path_url
+  //       : "";
+  //     if (Validator.isEmpty(data.images[i].id.toString())) {
+  //       errors.images = "The id of the " + i + " image is not defined ";
+  //       break;
+  //     }
+  //     if (Validator.isEmpty(data.images[i].path_url)) {
+  //       errors.images = "The path_url of the " + i + " image is not defined ";
+  //       break;
+  //     }
+  //   }
+  // }
   return {
     errors,
     isValid: isEmpty(errors),

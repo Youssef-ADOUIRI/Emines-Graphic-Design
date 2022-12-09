@@ -2,29 +2,35 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import axios from "axios";
+import { useSelector } from "react-redux";
+
 
 const UploadProject = () => {
-  const [multipleImages, setMultipleImages] = useState([]);
-
-  const changeMultipleImgs = (e) => {
-    if (e.target.files) {
-      const imageArray = Array.from(e.target.files).map((file) =>
-        console.log(file)
-      );
-    }
-  };
-
   const { register, handleSubmit } = useForm();
+  const [images, setImages] = useState([]);
+  const { userInfo } = useSelector(
+    (state) => state.auth
+  );
+  const onChangeImgs = (e) => {
+    e.preventDefault();
+    setImages(e.target.files);
+  };
   const submitForm = (data) => {
-    //ON SUBMIT:
-    data.owner = "ff5654df65456sdf21";
-    console.log(data);
+    const form = new FormData();
+    Object.keys(data).map((key, index) => {
+      form.append(key, data[key]);
+      console.log("KEY : " , key, data[key]);
+    });
+    //get owner from redux store
+    form.append('owner' , userInfo.id )
+    console.log("IMGS Selected : ", images);
+    for (let i = 0; i < images.length; i++) {
+      form.append("images", images[i]);
+    }
 
     axios
-      .post("http://localhost:5000/api/projects/add", data)
-      .then((res) => {
-        console.log(res);
-      })
+      .post("http://localhost:5000/api/projects/add", form)
+      .then((res) => console.log(res))
       .catch((e) => console.log(e));
   };
 
@@ -34,7 +40,7 @@ const UploadProject = () => {
       <form
         noValidate
         onSubmit={handleSubmit(submitForm)}
-        enctype="multipart/form-data"
+        encType="multipart/form-data"
       >
         <div className="upload_project_input" id="title_div">
           <label htmlFor="title">CARD TITLE</label>
@@ -56,7 +62,7 @@ const UploadProject = () => {
               valueAsNumber: true,
             })}
           >
-            <option value="0" defaultValue disabled hidden>
+            <option value="0" defaultValue selected disabled>
               type
             </option>
             <option value="0">0</option>
@@ -65,15 +71,15 @@ const UploadProject = () => {
         </div>
 
         <div className="upload_project_input" id="imgs_div">
-          <label htmlFor="imgs">IMG</label>
+          <label htmlFor="images">IMG</label>
           <input
             type="file"
-            id="imgs"
-            placeholder="import"
+            id="images"
+            name="images"
             multiple
-            accept=".png .jpg .jpeg"
-            {...register("imgs")}
-            onChange={changeMultipleImgs}
+            placeholder="import"
+            {...register("images")}
+            onChange={onChangeImgs}
           />
         </div>
         <div className="upload_project_input" id="gradient_div">

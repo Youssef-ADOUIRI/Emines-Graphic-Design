@@ -14,7 +14,7 @@ const ProjectSchema = new Schema({
   hidden: Boolean,
   imgs: [
     {
-      id: { type: Number, required: true },
+      id: { type: String, required: true },
       path_url: { type: String, required: true },
       ext: String,
       alt: String,
