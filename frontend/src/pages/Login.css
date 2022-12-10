@@ -8,11 +8,11 @@
     border: 5px solid #000000;
     border-radius: 26px;
     background-color: white;
+    text-align: start;
 }
 
-.loginSection form {
-    display: flex;
-    flex-direction: column;
+form {
+    margin-left: 72px;
 }
 
 .title_admin {
@@ -23,6 +23,7 @@
     margin-top: 100px;
     margin-left: 5rem;
     text-align: start;
+    padding: 0;
 }
 
 input {
@@ -33,12 +34,15 @@ input {
     line-height: 27px;
     background-color: #F3F3F3;
     color: #2D2D2D;
-    margin-left: 72px;
+
     margin-top: 12px;
+    text-align: start;
+    padding-left: 1em;
 }
 
 input::placeholder {
     padding-left: 15px;
+    text-align: start;
 }
 
 button {
@@ -49,10 +53,12 @@ button {
     font-size: 17px;
     line-height: 27px;
     color: #2D2D2D;
-    margin-left: 72px;
+
+    text-align: center;
 }
 
 span {
     margin-left: 72px;
     margin-top: 10px;
+    text-align: start;
 }

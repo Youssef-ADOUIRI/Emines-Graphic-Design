@@ -35,7 +35,7 @@ const Login = () => {
       style={{ backgroundImage: "url(/doc/admin/admin_background.png)" }}
     >
       <h1 className="title_admin">Admin</h1>
-      <form noValidate onSubmit={handleSubmit(submitForm)}>
+      <form noValidate className="d-flex flex-column" onSubmit={handleSubmit(submitForm)}>
         {err.email && <span style={{ color: "red" }}>{err.email}</span>}
         {err.emailnotfound && (
           <span style={{ color: "red" }}>{err.emailnotfound}</span>
@@ -64,7 +64,7 @@ const Login = () => {
         ></input>
 
         <button type="submit" disabled={loading}>
-          <u>Submit</u>
+          <b>Log in</b>
         </button>
       </form>
     </div>
