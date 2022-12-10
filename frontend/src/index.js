@@ -14,6 +14,7 @@ import RequireAuth from "./components/auth/RequireAuth";
 import Usernav from "./components/Usernav";
 import UploadProject from "./pages/UploadProject";
 import UploadBlog from "./pages/UploadBlog";
+import Adminlayout from "./pages/Adminlayout";
 
 import Account from "./pages/Account";
 
@@ -29,11 +30,11 @@ root.render(
             path="admin"
             element={
               <RequireAuth>
-                <Admin />
+                <Adminlayout />
               </RequireAuth>
             }
           >
-            <Route index element={<UploadProject />} />
+            <Route index element={<Admin />} />
             <Route path="upload" element={<UploadProject />} />
             <Route path="addblog" element={<UploadBlog />}></Route>
             <Route path="account" element={<Account />} />
