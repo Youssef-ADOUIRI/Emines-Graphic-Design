@@ -5,9 +5,9 @@ import "./Admin.css";
 
 const Admin = () => {
   return (
-    <div>
+
       <Outlet />
-    </div>
+
   );
 };
 

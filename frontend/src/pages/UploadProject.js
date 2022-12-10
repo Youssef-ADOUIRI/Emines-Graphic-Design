@@ -4,6 +4,21 @@ import { useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import "./UploadProject.css";
+import { NavLink } from "react-router-dom";
+
+const tlines = (
+  <svg
+    width="145"
+    height="146"
+    viewBox="0 0 145 146"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M145 116.693V145.078H0V116.693H145Z" fill="white" />
+    <path d="M145 56.7695V88.3082H0V56.7695H145Z" fill="white" />
+    <path d="M145 0V28.3848H0V0H145Z" fill="white" />
+  </svg>
+);
 
 const UploadProject = () => {
   const { register, handleSubmit } = useForm();
@@ -33,13 +48,20 @@ const UploadProject = () => {
   };
 
   return (
-    <div className="upload_project_section container">
-      <div className="row">
-        <h1 className="section_title ">
+    <div className="upload_project_section">
+      <div className="row ">
+        <h1 className="section_title col">
           PROJECT
           <br />
           DASH
         </h1>
+        <NavLink
+          className="col tlines"
+          to="/project/1"
+          style={{ textDecoration: "none" }}
+        >
+          {tlines}
+        </NavLink>
       </div>
       <form
         noValidate
@@ -82,8 +104,13 @@ const UploadProject = () => {
           </div>
         </div>
         <div className="row">
-          <div className="upload_project_input col" id="imgs_div">
-            <label htmlFor="images">IMG</label>
+          <div
+            className="upload_project_input col d-flex justify-content-center align-items-center"
+            id="imgs_div"
+          >
+            <label className="flex-grow-1" htmlFor="images">
+              IMG
+            </label>
             <input
               type="file"
               id="images"
@@ -94,11 +121,26 @@ const UploadProject = () => {
               onChange={onChangeImgs}
             />
           </div>
-          <div className="upload_project_input col" id="gradient_div">
-            <label htmlFor="hexs">GRADIENT</label>
+          <div
+            className="upload_project_input col d-flex justify-content-center align-items-center"
+            id="gradient_div"
+          >
+            <label className="flex-grow-1" htmlFor="hexs">
+              GRADIENT
+            </label>
             <div id="hexs">
-              <input type="color" id="hex1" {...register("hex1")} />
-              <input type="color" id="hex2" {...register("hex2")} />
+              <input
+                type="color"
+                defaultValue="#7B61FF"
+                id="hex1"
+                {...register("hex1")}
+              />
+              <input
+                type="color"
+                defaultValue="#47FF4D"
+                id="hex2"
+                {...register("hex2")}
+              />
             </div>
           </div>
         </div>
@@ -129,7 +171,13 @@ const UploadProject = () => {
             />
           </div>
         </div>
-        <button type="submit">Validate Project</button>
+        <div className="d-flex  justify-content-center align-items-center">
+          <button className="" type="submit">
+            Validate Project
+          </button>
+          <div className="flex-grow-1"></div>
+          <button className="bg-success">Validate Card</button>
+        </div>
       </form>
     </div>
   );

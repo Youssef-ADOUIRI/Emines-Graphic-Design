@@ -37,6 +37,9 @@ function Feed(props) {
               hex2={project.hex2}
               isImg={isImg}
               imgUrl={isImg ? project.imgs[0].path_url : ""}
+              parag1={project.parag1}
+              parag2={project.parag2?project.parag2:""}
+              type={project.cardType}
             />
           );
         })}
