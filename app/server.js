@@ -10,6 +10,7 @@ const port = process.env.PORT || 5000;
 
 const users = require("./routes/api/users");
 const projects = require("./routes/api/projects");
+const blogs = require("./routes/api/blogs");
 const testconnection = require("./routes/api/connectionTest");
 
 app.use(cors());
@@ -41,6 +42,8 @@ require("./config/passport")(passport);
 app.use("/api/testconnection", testconnection);
 app.use("/api/users", users);
 app.use("/api/projects", projects);
+app.use("/api/blogs", blogs);
+
 
 app.listen(port, () => {
   console.log(`Backend app listening on port ${port}`);

@@ -5,6 +5,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import "./UploadBlog.css";
 import { NavLink } from "react-router-dom";
+
 const tlines = (
   <svg
     width="144"
@@ -28,12 +29,16 @@ const tlines = (
 
 const UploadBlog = () => {
   const { register, handleSubmit } = useForm();
-  const onChangeImgs = (e) => {
-    e.preventDefault();
-  };
-
+  const { userInfo } = useSelector((state) => state.auth);
   const submitForm = (data) => {
+    const api_url = "http://localhost:5000/api/blogs/add";
+
+    data.author = userInfo.id;
     console.log(data);
+    axios
+      .post(api_url, data)
+      .then((res) => console.log(res))
+      .catch((e) => console.log(e));
   };
   return (
     <div className="upload_blog_section">
@@ -51,11 +56,7 @@ const UploadBlog = () => {
           {tlines}
         </NavLink>
       </div>
-      <form
-        noValidate
-        onSubmit={handleSubmit(submitForm)}
-        encType="multipart/form-data  "
-      >
+      <form noValidate onSubmit={handleSubmit(submitForm)}>
         <div
           className="upload_blog_input col d-flex flex-column"
           id="title_div"
@@ -81,7 +82,7 @@ const UploadBlog = () => {
             required
             id="parag1"
             className="parag1"
-            {...register("parag1")}
+            {...register("body")}
           />
         </div>
         <button className="" type="submit">
