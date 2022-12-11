@@ -90,6 +90,7 @@ const UploadProject = () => {
             <select
               placeholder="type"
               name="type"
+              className="type"
               id="type"
               {...register("cardType", {
                 valueAsNumber: true,
@@ -128,7 +129,7 @@ const UploadProject = () => {
             <label className="flex-grow-1" htmlFor="hexs">
               GRADIENT
             </label>
-            <div id="hexs">
+            <div className="hexs">
               <input
                 type="color"
                 defaultValue="#7B61FF"
@@ -155,6 +156,7 @@ const UploadProject = () => {
               placeholder="Type your description here"
               required
               id="parag1"
+              className="parag1"
               {...register("parag1")}
             />
           </div>
@@ -167,6 +169,7 @@ const UploadProject = () => {
               type="text"
               placeholder="Type your description here"
               id="parag2"
+              className="parag2"
               {...register("parag2")}
             />
           </div>

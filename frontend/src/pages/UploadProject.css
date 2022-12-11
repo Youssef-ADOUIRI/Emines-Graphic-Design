@@ -28,7 +28,7 @@
 }
 
 
-label {
+.upload_project_section label {
     text-align: start;
 }
 
@@ -39,7 +39,7 @@ label {
 }
 
 .upload_project_input input,
-select {
+.upload_project_input select {
     margin-left: 0;
     margin-top: 12px;
     margin-bottom: 10px;
@@ -48,12 +48,12 @@ select {
     width: auto;
 }
 
-#type {
+.type {
     text-align: start;
 }
 
 
-#hexs input {
+.hexs input {
     padding: 0;
     border: none;
     border-radius: 20px;
@@ -62,26 +62,29 @@ select {
     height: 25px;
 }
 
-#hexs input::-webkit-color-swatch {
+.hexs input::-webkit-color-swatch {
     border: none;
     border-radius: 20px;
     padding: 0;
 }
 
-#hexs input::-webkit-color-swatch-wrapper {
+.hexs input::-webkit-color-swatch-wrapper {
     border: none;
     border-radius: 20px;
     padding: 0;
 }
 
 
-#parag1,
-#parag2 {
+.parag1,
+.parag2 {
     text-align: start;
     height: 150px;
     padding: 20px;
+    margin-top: 12px;
 }
 
-button {
-    margin-left: 0
+.upload_project_section button {
+    margin-left: 0;
+    margin-top: 20px;
+    padding: 12px;
 }

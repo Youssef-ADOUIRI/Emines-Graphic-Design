@@ -28,7 +28,7 @@
 }
 
 
-label {
+.upload_blog_section label {
     text-align: start;
 }
 
@@ -48,19 +48,16 @@ label {
     width: auto;
 }
 
-#type {
-    text-align: start;
-}
 
 
 
-#parag1 {
+.parag1 {
     text-align: start;
     height: 150px;
     margin-top: 15px;
     padding: 20px;
 }
 
-button {
+.upload_blog_section button {
     margin-left: 0
 }

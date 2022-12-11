@@ -80,6 +80,7 @@ const UploadBlog = () => {
             placeholder="Type your description here"
             required
             id="parag1"
+            className="parag1"
             {...register("parag1")}
           />
         </div>
