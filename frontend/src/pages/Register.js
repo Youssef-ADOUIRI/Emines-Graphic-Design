@@ -12,7 +12,7 @@ const UploadProject = () => {
   const { userInfo } = useSelector((state) => state.auth);
 
   const submitForm = (data) => {
-    console.log(data)
+    console.log(data);
     // axios
     //   .post("http://localhost:5000/api/", form)
     //   .then((res) => console.log(res))
@@ -28,10 +28,7 @@ const UploadProject = () => {
           DASH
         </h1>
       </div>
-      <form
-        noValidate
-        onSubmit={handleSubmit(submitForm)}
-      >
+      <form noValidate onSubmit={handleSubmit(submitForm)}>
         <div className="row">
           <div
             className="upload_project_input col d-flex flex-column"

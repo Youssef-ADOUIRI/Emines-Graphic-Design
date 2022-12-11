@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { NavLink, Outlet } from "react-router-dom";
 
-const RequireAuth = ({ children }) => {
+const RequireSudo = ({ children }) => {
   const { isAuthenticated } = useSelector((state) => state.auth);
   const { userInfo } = useSelector((state) => state.auth);
 
@@ -20,4 +20,4 @@ const RequireAuth = ({ children }) => {
   return children;
 };
 
-export default RequireAuth;
+export default RequireSudo;

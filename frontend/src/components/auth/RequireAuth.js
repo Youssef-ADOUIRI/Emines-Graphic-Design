@@ -3,6 +3,7 @@ import { NavLink, Outlet } from "react-router-dom";
 
 const RequireAuth = ({ children }) => {
   const { isAuthenticated } = useSelector((state) => state.auth);
+  const { userInfo } = useSelector((state) => state.auth);
 
   // show unauthorized screen if no user is found in redux store
   if (!isAuthenticated) {
@@ -14,7 +15,7 @@ const RequireAuth = ({ children }) => {
         </span>
       </div>
     );
-  }
+  } 
 
   return children;
 };

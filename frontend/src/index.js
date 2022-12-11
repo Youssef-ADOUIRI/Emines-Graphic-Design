@@ -19,6 +19,7 @@ import Adminlayout from "./pages/Adminlayout";
 
 import Account from "./pages/Account";
 import Register from "./pages/Register";
+import AdminRestrict from "./components/auth/AdminRestrict";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -36,10 +37,11 @@ root.render(
               </RequireAuth>
             }
           >
-            <Route index element={<Admin />} />
-            <Route path="upload" element={<UploadProject />} />
-            <Route path="addblog" element={<UploadBlog />}></Route>
-            <Route path="account" element={<Account />} />
+            
+              <Route index element={<Admin />} />
+              <Route path="upload" element={<AdminRestrict><UploadProject /></AdminRestrict>} />
+              <Route path="addblog" element={<AdminRestrict><UploadBlog /></AdminRestrict>}></Route>
+              <Route path="account" element={<AdminRestrict><Account /></AdminRestrict>} />
             <Route
               path="register"
               element={
