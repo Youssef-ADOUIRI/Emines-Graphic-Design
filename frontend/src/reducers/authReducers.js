@@ -22,6 +22,7 @@ const authSilce = createSlice({
   initialState: initialState,
   reducers: {
     setCurrentUser(state, action) {
+      console.log(action.payload.userdata)
       return {
         ...state,
         isAuthenticated: !isEmpty(action.payload),

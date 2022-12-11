@@ -25,6 +25,7 @@ function Navbar() {
           userdata: {
             id: decoded.id,
             name: decoded.name,
+            isAdmin: decoded.isAdmin,
             email: decoded.email,
           },
         })

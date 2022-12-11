@@ -27,7 +27,7 @@ export const registerUser = createAsyncThunk(
 export const loginUser = createAsyncThunk(
   "user/login",
   async (userData, { rejectWithValue, dispatch }) => {
-    const access = axios
+    const access = await axios
       .post("/api/users/login", userData)
       .then((res) => {
         // Save to localStorage
@@ -39,15 +39,13 @@ export const loginUser = createAsyncThunk(
         // Decode token to get user data
         const decoded = jwt_decode(token);
         dispatch(setErrors({}));
-        //adding token to payload
-        //decoded["token"] = token;
-        // Decode token to get user data
         return {
           token: token,
           success: decoded.success,
           userdata: {
             id: decoded.id,
             name: decoded.name,
+            isAdmin: decoded.isAdmin,
             email: decoded.email,
           },
         };

@@ -3,18 +3,19 @@ import { NavLink, Outlet } from "react-router-dom";
 
 const RequireAuth = ({ children }) => {
   const { isAuthenticated } = useSelector((state) => state.auth);
+  const { userInfo } = useSelector((state) => state.auth);
 
-  // show unauthorized screen if no user is found in redux store
-  if (!isAuthenticated) {
+  // show unauthorized screen if is not admin in redux store
+  if (!userInfo.isAdmin)
     return (
       <div className="unauthorized">
-        <h1>Unauthorized :(</h1>
-        <span>
-          <NavLink to="/login">Login</NavLink> to gain access
-        </span>
+        <h1>
+          Unauthorized
+          <br />
+          contact the admin
+        </h1>
       </div>
     );
-  }
 
   return children;
 };

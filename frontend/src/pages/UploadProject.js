@@ -66,7 +66,7 @@ const UploadProject = () => {
       <form
         noValidate
         onSubmit={handleSubmit(submitForm)}
-        encType="multipart/form-data row container"
+        encType="multipart/form-data"
       >
         <div className="row">
           <div

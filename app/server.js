@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const passport = require("passport");
-const fileupload = require("express-fileupload");
+
 
 const port = process.env.PORT || 5000;
 
@@ -49,9 +49,9 @@ app.listen(port, () => {
   console.log(`Backend app listening on port ${port}`);
 });
 
-app.use((req, res, next) => {
-  // Error goes via `next()` method
-  setImmediate(() => {
-      next(new Error('Something went wrong'));
-  });
-});
+// app.use((req, res, next) => {
+//   // Error goes via `next()` method
+//   setImmediate(() => {
+//       next(new Error('Something went wrong'));
+//   });
+// });
