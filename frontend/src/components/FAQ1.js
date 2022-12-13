@@ -1,31 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import "./FAQ.css";
-import { motion } from "framer-motion";
-const Plusicon = (
-  <svg
-    className="plus_icon"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 448 512"
-  >
-    <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
-  </svg>
-);
+
 
 function FAQ() {
-  const [rotate, setRotate] = useState(false);
   return (
     <div class="boite">
       <div class="container-faq">
         <h1>FAQ</h1>
         <div class="questions">
           <div class="visible-pannel">
-            <h2>
-              WHAT DO YOU CHARGE FOR YOUR GRAPHIC
-              <br /> DESIGN SERVICES?
-            </h2>
-            {Plusicon}
+            <h2>WHAT DO YOU CHARGE FOR YOUR GRAPHIC DESIGN SERVICES?</h2>
+            <img src="ressources/croix.svg" alt="croix animation" />
           </div>
-          <hr />
           <div class="toggle-pannel">
             <h4>Lorem ipsum dolor sit amet.</h4>
             <p>
@@ -38,11 +24,8 @@ function FAQ() {
 
         <div class="questions">
           <div class="visible-pannel">
-            <h2>
-              HOW DOES YOUR LOGO DESIGN PROCESS
-              <br /> WORK?
-            </h2>
-            {Plusicon}
+            <h2>HOW DOES YOUR LOGO DESIGN PROCESS WORK?</h2>
+            <svg src="icons/plus-solid.svg" alt="croix animation" />
           </div>
           <div class="toggle-pannel">
             <h4>Lorem ipsum dolor sit amet.</h4>
@@ -56,16 +39,12 @@ function FAQ() {
               consequuntur eos aut voluptatibus pariatur?
             </p>
           </div>
-          <hr />
         </div>
 
         <div class="questions">
           <div class="visible-pannel">
-            <h2>
-              IS THE ARTWORK OUR PROPERTY ONCE PAID
-              <br /> FOR?
-            </h2>
-            {Plusicon}
+            <h2>IS THE ARTWORK OUR PROPERTY ONCE PAID FOR?</h2>
+            <img src="ressources/croix.svg" alt="croix animation" />
           </div>
           <div class="toggle-pannel">
             <h4>Lorem ipsum dolor sit amet.</h4>
@@ -74,16 +53,12 @@ function FAQ() {
               est!
             </p>
           </div>
-          <hr />
         </div>
 
         <div class="questions">
           <div class="visible-pannel">
-            <h2>
-              WHAT IS THE CLIENT’S INVOLVEMENT IN THE
-              <br /> DESIGN PROCESS?
-            </h2>
-            {Plusicon}
+            <h2>WHAT IS THE CLIENT’S INVOLVEMENT IN THE DESIGN PROCESS?</h2>
+            <img src="ressources/croix.svg" alt="croix animation" />
           </div>
           <div class="toggle-pannel">
             <h4>Lorem ipsum dolor sit amet.</h4>
@@ -97,7 +72,6 @@ function FAQ() {
               reprehenderit dolorum est nesciunt ducimus provident tenetur!
             </p>
           </div>
-          <hr />
         </div>
       </div>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/gsap.min.js"></script>

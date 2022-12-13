@@ -1,4 +1,4 @@
-const allCross = document.querySelectorAll('.visible-pannel img');
+const allCross = document.querySelectorAll('.visible-pannel svg');
 console.log(allCross);
 
 
