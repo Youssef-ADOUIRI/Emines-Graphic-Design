@@ -3,7 +3,7 @@ import "./Blackbords.css";
 
 const Blackbords = () => {
   return (
-    <div className="blackbords_container container">
+    <div className="blackbords_container container flex-wrap">
       <div className="blackbords_box">
         <h1>Creation Content</h1>
         <p>

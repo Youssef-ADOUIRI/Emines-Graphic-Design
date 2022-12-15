@@ -14,11 +14,11 @@ const Plusicon = (
 function FAQ() {
   const [rotate, setRotate] = useState(false);
   return (
-    <div class="boite">
-      <div class="container-faq">
+    <div className="boite">
+      <div className="container-faq">
         <h1>FAQ</h1>
-        <div class="questions">
-          <div class="visible-pannel">
+        <div className="questions">
+          <div className="visible-pannel">
             <h2>
               WHAT DO YOU CHARGE FOR YOUR GRAPHIC
               <br /> DESIGN SERVICES?
@@ -26,7 +26,7 @@ function FAQ() {
             {Plusicon}
           </div>
           <hr />
-          <div class="toggle-pannel">
+          <div className="toggle-pannel">
             <h4>Lorem ipsum dolor sit amet.</h4>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -36,15 +36,15 @@ function FAQ() {
           </div>
         </div>
 
-        <div class="questions">
-          <div class="visible-pannel">
+        <div className="questions">
+          <div className="visible-pannel">
             <h2>
               HOW DOES YOUR LOGO DESIGN PROCESS
               <br /> WORK?
             </h2>
             {Plusicon}
           </div>
-          <div class="toggle-pannel">
+          <div className="toggle-pannel">
             <h4>Lorem ipsum dolor sit amet.</h4>
             <p>
               Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -59,15 +59,15 @@ function FAQ() {
           <hr />
         </div>
 
-        <div class="questions">
-          <div class="visible-pannel">
+        <div className="questions">
+          <div className="visible-pannel">
             <h2>
               IS THE ARTWORK OUR PROPERTY ONCE PAID
               <br /> FOR?
             </h2>
             {Plusicon}
           </div>
-          <div class="toggle-pannel">
+          <div className="toggle-pannel">
             <h4>Lorem ipsum dolor sit amet.</h4>
             <p>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis,
@@ -77,15 +77,15 @@ function FAQ() {
           <hr />
         </div>
 
-        <div class="questions">
-          <div class="visible-pannel">
+        <div className="questions">
+          <div className="visible-pannel">
             <h2>
               WHAT IS THE CLIENT’S INVOLVEMENT IN THE
               <br /> DESIGN PROCESS?
             </h2>
             {Plusicon}
           </div>
-          <div class="toggle-pannel">
+          <div className="toggle-pannel">
             <h4>Lorem ipsum dolor sit amet.</h4>
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit.

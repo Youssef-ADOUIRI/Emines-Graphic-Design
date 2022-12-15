@@ -17,7 +17,7 @@ function Informations() {
         info@weareelx.com
         <br />
       </p>
-      <div>
+      <div className="icons_group_contact">
         <a>
           <i className="bi bi-facebook"></i>
         </a>

@@ -21,13 +21,24 @@ const tlines = (
 );
 
 const UploadProject = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const [images, setImages] = useState([]);
-  const { userInfo } = useSelector((state) => state.auth);
+  const { userInfo, error } = useSelector((state) => state.auth);
+  const err = useSelector((state) => state.err);
   const navigate = useNavigate();
+  const [errors, setError] = useState({});
   const onChangeImgs = (e) => {
     e.preventDefault();
-    setImages(e.target.files);
+    let tempArr = [];
+    for (let i = 0; i < e.target.files.length; i++) {
+      tempArr.push(e.target.files[i]);
+    }
+    setImages(images.concat(tempArr));
+  };
+  const OnClearAll = () => {
+    setImages([]);
+    setError({});
+    reset();
   };
   const submitForm = (data) => {
     const form = new FormData();
@@ -36,7 +47,6 @@ const UploadProject = () => {
     });
     //get owner from redux store
     form.append("owner", userInfo.id);
-    console.log("IMGS Selected : ", images);
     for (let i = 0; i < images.length; i++) {
       form.append("images", images[i]);
     }
@@ -48,24 +58,34 @@ const UploadProject = () => {
           navigate("/admin");
         }
       })
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        setError(e.response.data);
+        console.log(e.response.data);
+      });
   };
 
   return (
     <div className="upload_project_section">
+      {!errors && (
+        <div className="alert">
+          <span
+            className="closebtn"
+            onclick={() => {
+              setError({});
+            }}
+          >
+            &times;
+          </span>
+          <strong>Failed! </strong> {errors}
+        </div>
+      )}
       <div className="row ">
         <h1 className="section_title col">
           PROJECT
           <br />
           DASH
         </h1>
-        <NavLink
-          className="col tlines"
-          to="/project/1"
-          style={{ textDecoration: "none" }}
-        >
-          {tlines}
-        </NavLink>
+        <div className="col tlines">{tlines}</div>
       </div>
       <form
         noValidate
@@ -178,9 +198,13 @@ const UploadProject = () => {
             />
           </div>
         </div>
-        <div className="d-flex  justify-content-center align-items-center">
-          <div className="flex-grow-1"></div>
-          <button className="btn btn-success">Upload Project</button>
+        <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button className="btn me-md-2" onClick={OnClearAll}>
+            Clear All
+          </button>
+          <button type="submit" className="btn btn-success">
+            Upload Project
+          </button>
         </div>
       </form>
     </div>

@@ -130,8 +130,6 @@ router.get("/getbyowner/:id", (req, res) => {
       console.log(err);
       res.send(err);
     } else {
-      console.log(doc);
-
       res.send(doc);
     }
   });

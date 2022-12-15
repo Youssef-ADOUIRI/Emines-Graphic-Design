@@ -23,7 +23,7 @@ function Home() {
         <Parteners />
       </div>
       <footer
-        className="App-footer d-flex mb-3 justify-content-between"
+        className="App-footer d-flex mb-3 justify-content-between flex-wrap"
         id="footer_section_id"
       >
         <Informations />

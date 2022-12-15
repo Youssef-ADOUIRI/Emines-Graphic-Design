@@ -72,6 +72,7 @@ const Admin = () => {
         })
         .catch((err) => {
           console.log(err);
+          
         });
       setProjects(resp);
       setLoading(false);
