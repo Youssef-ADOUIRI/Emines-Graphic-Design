@@ -11,7 +11,9 @@ const port = process.env.PORT || 5000;
 const users = require("./routes/api/users");
 const projects = require("./routes/api/projects");
 const blogs = require("./routes/api/blogs");
+const messages = require("./routes/api/messages");
 const testconnection = require("./routes/api/connectionTest");
+
 
 app.use(cors());
 app.use(bodyParser.json({ limit: "2mb" }));
@@ -43,6 +45,8 @@ app.use("/api/testconnection", testconnection);
 app.use("/api/users", users);
 app.use("/api/projects", projects);
 app.use("/api/blogs", blogs);
+app.use("/api/messages", messages);
+
 
 
 app.listen(port, () => {

@@ -9,13 +9,13 @@ const validateAddBlogInput = require("../../validation/blog");
 router.get("/:id", (req, res) => {
   console.log("API GET api/blogs/:id is reached");
   const blogIdID = req.params.id;
-  Project.find({ _id: blogIdID }, (err, doc) => {
+  Blog.find({ _id: blogIdID }, (err, doc) => {
     res.send(doc);
   });
 });
 
 // @route POST api/blogs/add
-// @desc Register user
+// @desc ADD blog
 // @access Public
 router.post("/add", (req, res) => {
   console.log("API Post api/blogs/add is reached");

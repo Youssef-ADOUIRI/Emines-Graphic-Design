@@ -9,4 +9,4 @@ const BlogSchema = new Schema({
   body: { type: String, required: true },
 });
 
-module.exports = Project = mongoose.model("blogs", BlogSchema);
+module.exports = Blog = mongoose.model("blogs", BlogSchema);
