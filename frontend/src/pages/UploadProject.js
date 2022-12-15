@@ -4,7 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import "./UploadProject.css";
-import { NavLink } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 const tlines = (
   <svg
@@ -24,6 +24,7 @@ const UploadProject = () => {
   const { register, handleSubmit } = useForm();
   const [images, setImages] = useState([]);
   const { userInfo } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
   const onChangeImgs = (e) => {
     e.preventDefault();
     setImages(e.target.files);
@@ -32,7 +33,6 @@ const UploadProject = () => {
     const form = new FormData();
     Object.keys(data).map((key, index) => {
       form.append(key, data[key]);
-      console.log("KEY : ", key, data[key]);
     });
     //get owner from redux store
     form.append("owner", userInfo.id);
@@ -42,8 +42,12 @@ const UploadProject = () => {
     }
 
     axios
-      .post("http://localhost:5000/api/projects/add", form)
-      .then((res) => console.log(res))
+      .post("/api/projects/add", form)
+      .then((res) => {
+        if (res.status == 200) {
+          navigate("/admin");
+        }
+      })
       .catch((e) => console.log(e));
   };
 
@@ -175,11 +179,8 @@ const UploadProject = () => {
           </div>
         </div>
         <div className="d-flex  justify-content-center align-items-center">
-          <button className="" type="submit">
-            Validate Project
-          </button>
           <div className="flex-grow-1"></div>
-          <button className="bg-success">Validate Card</button>
+          <button className="btn btn-success">Upload Project</button>
         </div>
       </form>
     </div>

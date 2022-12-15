@@ -5,7 +5,6 @@
     margin: 100px auto;
     display: flex;
     justify-content: center;
-
 }
 
 .blackbords_box {
@@ -27,12 +26,13 @@
 
 
 .blackbords_container h1 {
-    
+
     width: 302px;
     height: 132px;
     font-weight: 600;
     font-size: 64px;
     line-height: 66px;
+    padding-top: 25px;
     position: relative;
     left: 20px;
     text-align: start;

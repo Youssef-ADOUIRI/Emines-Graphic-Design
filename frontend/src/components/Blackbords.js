@@ -3,8 +3,8 @@ import "./Blackbords.css";
 
 const Blackbords = () => {
   return (
-    <div class="blackbords_container container">
-      <div class="blackbords_box">
+    <div className="blackbords_container container">
+      <div className="blackbords_box">
         <h1>Creation Content</h1>
         <p>
           Morbi feugiat felis sit amet dolor faucibus, et imperdiet urna
@@ -15,7 +15,7 @@ const Blackbords = () => {
           ac rhoncus ex tincidunt vitae.
         </p>
       </div>
-      <div class="blackbords_box">
+      <div className="blackbords_box">
         <h1>Design & Branding</h1>
         <p>
           Morbi feugiat felis sit amet dolor faucibus, et imperdiet urna
@@ -26,7 +26,7 @@ const Blackbords = () => {
           ac rhoncus ex tincidunt vitae.
         </p>
       </div>
-      <div class="blackbords_box">
+      <div className="blackbords_box">
         <h1>Product Design</h1>
         <p>
           Morbi feugiat felis sit amet dolor faucibus, et imperdiet urna

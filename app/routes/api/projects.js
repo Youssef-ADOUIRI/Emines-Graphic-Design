@@ -79,21 +79,62 @@ router.post("/add", upload.array("images", MAX_IMG_COUNT), (req, res, err) => {
     .catch((err) => console.log(err));
 });
 
+// @route GET api/projects/getall/:num
+// @desc get project
+// @access Public
+router.get("/getall/:num", (req, res) => {
+  console.log("API GET api/projects/getall/:num is reached");
+  const num = req.params.num;
+
+  if (num < 0) {
+    Project.find({}, (err, doc) => {
+      if (err) {
+        console.log(err);
+        res.send(err);
+      } else {
+        res.send(doc);
+      }
+    });
+  } else {
+    Project.find({ limit: num }, (err, doc) => {
+      if (err) {
+        console.log(err);
+        res.send(err);
+      } else {
+        res.send(doc);
+      }
+    });
+  }
+});
+
 // @route GET api/projects/get/:id
 // @desc get project
 // @access Public
 router.get("/get/:id", (req, res) => {
   console.log("API GET api/projects/get/:id is reached");
   const prjID = req.params.id;
-  if (prjID >= 0)
-    Project.find({ _id: prjID }, (err, doc) => {
+
+  Project.find({ _id: prjID }, (err, doc) => {
+    res.send(doc);
+  });
+});
+// @route GET api/projects/getbyowner/:id
+// @desc get project
+// @access Public
+router.get("/getbyowner/:id", (req, res) => {
+  const ownerID = req.params.id;
+  console.log(`API GET api/projects/getbyowner/${ownerID} is reached`);
+
+  Project.find({ owner: ownerID }, (err, doc) => {
+    if (err) {
+      console.log(err);
+      res.send(err);
+    } else {
+      console.log(doc);
+
       res.send(doc);
-    });
-  else {
-    Project.find({}, (err, doc) => {
-      res.send(doc);
-    });
-  }
+    }
+  });
 });
 
 module.exports = router;

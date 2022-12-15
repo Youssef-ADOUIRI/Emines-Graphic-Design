@@ -18,11 +18,14 @@ function Home() {
         <MainRec />
         <Feed number="5" />
         <News />
-        <Parteners />
-        <Blackbords />
         <FAQ />
+        <Blackbords />
+        <Parteners />
       </div>
-      <footer className="App-footer d-flex mb-3 justify-content-between">
+      <footer
+        className="App-footer d-flex mb-3 justify-content-between"
+        id="footer_section_id"
+      >
         <Informations />
         <Contact />
       </footer>

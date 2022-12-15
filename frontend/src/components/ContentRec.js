@@ -5,7 +5,6 @@ import { NavLink } from "react-router-dom";
 function ContentRec(props) {
   let Styles = {
     color: "white",
-    backgroundSize: "cover",
     background:
       "linear-gradient(180deg," +
       props.hex1 +
@@ -16,13 +15,12 @@ function ContentRec(props) {
 
   if (props.isImg === true) {
     const url_img = props.imgUrl;
-    console.log(props.imgUrl);
     const back_img = "url(" + url_img + ")";
     Styles.backgroundImage = back_img;
   }
 
   return (
-    <NavLink to={"/project/" + props.title} style={{ textDecoration: "none" }}>
+    <NavLink to={"/project/" + props.prjId} style={{ textDecoration: "none" }}>
       <div
         className="RecContent container full-height d-flex flex-column"
         style={Styles}

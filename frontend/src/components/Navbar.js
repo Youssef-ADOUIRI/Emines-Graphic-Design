@@ -60,8 +60,17 @@ function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <ul className="navbar-nav d-flex ms-auto nav-list">
-            <li className="nav-item p-2">
-              <NavLink to="/" className="nav-link active" aria-current="page">
+            <li
+              className="nav-item p-2"
+              onClick={() => {
+                window.location.replace("/#footer_section_id");
+              }}
+            >
+              <NavLink
+                to="/#footer_section_id"
+                className="nav-link active"
+                aria-current="page"
+              >
                 About
               </NavLink>
             </li>
@@ -70,7 +79,12 @@ function Navbar() {
                 Portfolio
               </NavLink>
             </li>
-            <li className="nav-item ms-auto p-2">
+            <li
+              className="nav-item ms-auto p-2"
+              onClick={() => {
+                window.location.replace("/#footer_section_id");
+              }}
+            >
               <NavLink to="/" className="nav-link active">
                 Contact
               </NavLink>

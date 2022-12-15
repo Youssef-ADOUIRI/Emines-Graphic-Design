@@ -8,8 +8,21 @@
     height: 100vh;
 }
 
+.portfolio_project_section {
+    width: calc(100vw - calc(100vw - 100%));
+}
+
 .admin_section>img {
     width: 65%;
+}
+
+.project_image_portfolio {
+    width: 85vw;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-color: white;
+    border-width: 2px;
 }
 
 .subtitle_admin {
@@ -24,6 +37,24 @@
     font-weight: 400;
     font-size: 15px;
     line-height: 27px;
+}
+
+.plus_icon1 {
+    height: 40px;
+    fill: white;
+    text-align: left;
+    margin-right: 5px;
+}
+
+.ibb {
+    margin-top: 30px;
+    text-align: left;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 44px;
+    color: white;
 }
 
 .news h2 {
