@@ -84,26 +84,31 @@ router.post("/add", upload.array("images", MAX_IMG_COUNT), (req, res, err) => {
 // @access Public
 router.get("/getall/:num", (req, res) => {
   console.log("API GET api/projects/getall/:num is reached");
-  const num = req.params.num;
+  const num = parseInt(req.params.num);
 
   if (num < 0) {
-    Project.find({}, (err, doc) => {
-      if (err) {
-        console.log(err);
-        res.send(err);
-      } else {
-        res.send(doc);
-      }
-    });
+    Project.find()
+      .sort({ date: -1 })
+      .exec((err, doc) => {
+        if (err) {
+          console.log(err);
+          res.send(err);
+        } else {
+          res.send(doc);
+        }
+      });
   } else {
-    Project.find({ limit: num }, (err, doc) => {
-      if (err) {
-        console.log(err);
-        res.send(err);
-      } else {
-        res.send(doc);
-      }
-    });
+    Project.find()
+      .sort({ date: -1 })
+      .limit(num)
+      .exec((err, doc) => {
+        if (err) {
+          console.log(err);
+          res.send(err);
+        } else {
+          res.send(doc);
+        }
+      });
   }
 });
 
@@ -114,9 +119,16 @@ router.get("/get/:id", (req, res) => {
   console.log("API GET api/projects/get/:id is reached");
   const prjID = req.params.id;
 
-  Project.find({ _id: prjID }, (err, doc) => {
-    res.send(doc);
-  });
+  Project.find({ _id: prjID })
+    .sort({ date: -1 })
+    .exec((err, doc) => {
+      if (err) {
+        console.log(err);
+        res.send(err);
+      } else {
+        res.send(doc);
+      }
+    });
 });
 // @route GET api/projects/getbyowner/:id
 // @desc get project
@@ -125,14 +137,16 @@ router.get("/getbyowner/:id", (req, res) => {
   const ownerID = req.params.id;
   console.log(`API GET api/projects/getbyowner/${ownerID} is reached`);
 
-  Project.find({ owner: ownerID }, (err, doc) => {
-    if (err) {
-      console.log(err);
-      res.send(err);
-    } else {
-      res.send(doc);
-    }
-  });
+  Project.find({ owner: ownerID })
+    .sort({ date: -1 })
+    .exec((err, doc) => {
+      if (err) {
+        console.log(err);
+        res.send(err);
+      } else {
+        res.send(doc);
+      }
+    });
 });
 
 module.exports = router;

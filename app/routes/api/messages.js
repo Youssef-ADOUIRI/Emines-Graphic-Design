@@ -29,15 +29,31 @@ router.post("/add", (req, res) => {
 // @access Private
 router.get("/getall/:num", (req, res) => {
   console.log("API GET message all is reached");
-  const num = req.params.num;
+  const num = parseInt(req.params.num);
+  console.log(num - 1);
   if (num >= 0)
-    Message.find({ limit: num }, (err, doc) => {
-      res.send(doc);
-    });
+    Message.find()
+      .sort({ date: -1 })
+      .limit(num)
+      .exec((err, doc) => {
+        if (err) {
+          console.log(err);
+          res.send(err);
+        } else {
+          res.send(doc);
+        }
+      });
   else
-    Message.find({}, (err, doc) => {
-      res.send(doc);
-    });
+    Message.find()
+      .sort({ date: -1 })
+      .exec((err, doc) => {
+        if (err) {
+          console.log(err);
+          res.send(err);
+        } else {
+          res.send(doc);
+        }
+      });
 });
 
 // @route GET api/messages/getby/name/:name
@@ -46,9 +62,16 @@ router.get("/getall/:num", (req, res) => {
 router.get("/getby/name/:name", (req, res) => {
   console.log("API GET message by name is reached");
   const name = req.params.name;
-  Message.find({ name: name }, (err, doc) => {
-    res.send(doc);
-  });
+  Message.find({ name: name })
+    .sort({ date: -1 })
+    .exec((err, doc) => {
+      if (err) {
+        console.log(err);
+        res.send(err);
+      } else {
+        res.send(doc);
+      }
+    });
 });
 
 // @route GET api/messages/getby/email/:email
@@ -57,9 +80,16 @@ router.get("/getby/name/:name", (req, res) => {
 router.get("/getby/email/:email", (req, res) => {
   console.log("API GET message by email is reached");
   const email = req.params.email;
-  Message.find({ email: email }, (err, doc) => {
-    res.send(doc);
-  });
+  Message.find({ email: email })
+    .sort({ date: -1 })
+    .exec((err, doc) => {
+      if (err) {
+        console.log(err);
+        res.send(err);
+      } else {
+        res.send(doc);
+      }
+    });
 });
 
 module.exports = router;
