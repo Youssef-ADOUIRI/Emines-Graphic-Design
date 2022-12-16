@@ -200,7 +200,7 @@ const Admin = () => {
   } else {
     return (
       <div>
-        <h1>ADMIN HAS NO PORTFOLIO</h1>
+        <h1 className="my-4">ADMIN HAS NO PORTFOLIO</h1>
         <p>
           Login as User
           <br /> or, Go to add designer page
@@ -214,7 +214,7 @@ const Admin = () => {
           Add Designer
         </button>
         or
-        <button className="btn btn-secondary mx-2" onClick={handleLogout}>
+        <button className="btn btn-secondary mx-2 my-4" onClick={handleLogout}>
           Logout
         </button>
       </div>

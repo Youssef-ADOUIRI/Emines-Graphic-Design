@@ -54,13 +54,7 @@ const Register = () => {
           <br />
           DASH
         </h1>
-        <NavLink
-          className="col tlines"
-          to="/project/1"
-          style={{ textDecoration: "none" }}
-        >
-          {tlines}
-        </NavLink>
+        <div className="col tlines">{tlines}</div>
       </div>
       <form noValidate onSubmit={handleSubmit(submitForm)}>
         <div className="row">
