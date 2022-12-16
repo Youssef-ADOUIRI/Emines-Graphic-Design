@@ -39,12 +39,8 @@ let upload = multer({ storage: storage, fileFilter: filefilter });
 // @access Public
 const MAX_IMG_COUNT = 5;
 router.post("/add", upload.array("images", MAX_IMG_COUNT), (req, res, err) => {
-  console.log("Endpoint POST <api/projects/add> is reached");
-  console.log(req.body);
-  console.log(`FILES (max is ${MAX_IMG_COUNT}) : `);
-  console.log(req.files);
   const files = req.files;
-  console.log("--------------------Images are uploaded---------------------");
+
   const { errors, isValid } = validateAddProjectInput(req.body);
   if (!isValid) {
     return res.status(400).json(errors);

@@ -97,7 +97,7 @@ const UploadProject = () => {
             className="upload_project_input col d-flex flex-column"
             id="title_div"
           >
-            <label htmlFor="title">CARD TITLE</label>
+            <label htmlFor="title">PROJECT TITLE</label>
             <input
               type="text"
               placeholder="name"
@@ -134,7 +134,7 @@ const UploadProject = () => {
             id="imgs_div"
           >
             <label className="flex-grow-1" htmlFor="images">
-              IMG
+              IMAGES
             </label>
             <input
               type="file"

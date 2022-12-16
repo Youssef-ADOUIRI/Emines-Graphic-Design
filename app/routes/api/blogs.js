@@ -3,15 +3,72 @@ const Blog = require("../../models/Blog");
 const router = express.Router();
 const validateAddBlogInput = require("../../validation/blog");
 
-// @route GET api/blogs/:id
+// @route GET  api/blogs/getall/:num
 // @desc Get blog
 // @access Public
-router.get("/:id", (req, res) => {
+router.get("/getall/:num", (req, res) => {
+  console.log("API GET api/blogs/:id is reached");
+  const num = req.params.num;
+  if (num >= 0)
+    Blog.find({})
+      .sort({ date: -1 })
+      .limit(num)
+      .exec((err, doc) => {
+        if (err) {
+          console.log(err);
+          res.send(err);
+        } else {
+          res.send(doc);
+        }
+      });
+  else {
+    Blog.find({})
+      .sort({ date: -1 })
+      .exec((err, doc) => {
+        if (err) {
+          console.log(err);
+          res.send(err);
+        } else {
+          res.send(doc);
+        }
+      });
+  }
+});
+
+// @route GET api/blogs/get/:id
+// @desc Get blog
+// @access Public
+router.get("/get/:id", (req, res) => {
   console.log("API GET api/blogs/:id is reached");
   const blogIdID = req.params.id;
-  Blog.find({ _id: blogIdID }, (err, doc) => {
-    res.send(doc);
-  });
+  Blog.find({ _id: blogIdID })
+    .sort({ date: -1 })
+    .exec((err, doc) => {
+      if (err) {
+        console.log(err);
+        res.send(err);
+      } else {
+        res.send(doc);
+      }
+    });
+});
+
+// @route GET api/blogs/getbyonwer/:id
+// @desc Get blog
+// @access Public
+router.get("/getbyonwer/:id", (req, res) => {
+  console.log("API GET api/blogs/getbyowner/:id is reached");
+  const ownerID = req.params.id;
+  Blog.find({ owner: ownerID })
+    .sort({ date: -1 })
+    .exec((err, doc) => {
+      if (err) {
+        console.log(err);
+        res.send(err);
+      } else {
+        res.send(doc);
+      }
+    });
 });
 
 // @route POST api/blogs/add

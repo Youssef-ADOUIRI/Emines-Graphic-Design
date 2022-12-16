@@ -4,7 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import "./UploadBlog.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const tlines = (
   <svg
@@ -29,6 +29,7 @@ const tlines = (
 
 const UploadBlog = () => {
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
   const { userInfo } = useSelector((state) => state.auth);
   const submitForm = (data) => {
     const api_url = "http://localhost:5000/api/blogs/add";
@@ -37,7 +38,11 @@ const UploadBlog = () => {
     console.log(data);
     axios
       .post(api_url, data)
-      .then((res) => console.log(res))
+      .then((res) => {
+        if (res.status == 200) {
+          navigate("/admin");
+        }
+      })
       .catch((e) => console.log(e));
   };
   return (
@@ -85,7 +90,7 @@ const UploadBlog = () => {
             {...register("body")}
           />
         </div>
-        <button className="" type="submit">
+        <button className="btn btn-success mt-5" type="submit">
           Post blog
         </button>
       </form>

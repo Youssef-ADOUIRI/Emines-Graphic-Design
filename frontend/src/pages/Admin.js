@@ -50,7 +50,8 @@ const HL = (
 );
 
 const Admin = () => {
-  const DISPLAY_LIMIT_PROJECT = 5;
+  const DISPLAY_LIMIT_PROJECT = 6;
+  const DISPLAY_LIMIT_BLOG = 6;
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { userInfo } = useSelector((state) => state.auth);
@@ -60,123 +61,157 @@ const Admin = () => {
   };
   const [loading, setLoading] = useState(true);
   const [projects, setProjects] = useState([]);
-  const api_url = "/api/projects/getbyowner/" + userInfo.id;
+  const [blogs, setBlogs] = useState([]);
+  const api_url_blog = "/api/blogs/getbyonwer/" + userInfo.id;
+  const api_url_project = "/api/projects/getbyowner/" + userInfo.id;
 
   useEffect(() => {
     const getProject = async () => {
       setLoading(true);
       const resp = await axios
-        .get(api_url)
+        .get(api_url_project)
         .then((res) => {
           return res.data;
         })
         .catch((err) => {
           console.log(err);
-          
         });
       setProjects(resp);
+      const resp2 = await axios
+        .get(api_url_blog)
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      setBlogs(resp2);
       setLoading(false);
     };
     getProject();
   }, []);
-  if (projects.length > 0 || !loading) {
-    return (
-      <div className="admin_page">
-        <section className="admin_section">
-          <img src="/doc/admin/Admin_Back.png"></img>
-          <br />
-          <span className="subtitle_admin">
-            This is the admin page, it allows you to manage and edit your blogs
-            and projects
-          </span>
-        </section>
-        <section className="upload_blog_section">
-          <div className="row">
-            <h1 className="section_title col">
-              BLOG
-              <br />
-              DASH
-            </h1>
-            <NavLink
-              className="col tlines"
-              to="/"
-              style={{ textDecoration: "none" }}
-            >
-              {tlines}
-            </NavLink>
-          </div>
-          <div className="news">
+
+  if (!userInfo.isAdmin) {
+    if (projects.length > 0 || !loading) {
+      return (
+        <div className="admin_page">
+          <section className="admin_section">
+            <img src="/doc/admin/Admin_Back.png"></img>
+            <br />
+            <span className="subtitle_admin">
+              This is the admin page, it allows you to manage and edit your
+              blogs and projects
+            </span>
+          </section>
+          <section className="portfolio_blog_section">
             <div className="row">
-              <div className="col mx-2 my-2">
-                <h2>We have a group chat we’re all in it except you</h2>
-                <p className="lead py-2">7 September 2020</p>
-              </div>
-              <div className="col mx-2 my-2">
-                <h2>We have a group chat we’re all in it except you</h2>
-                <p className="lead">7 September 2020</p>
-              </div>
+              <h1 className="section_title col">
+                BLOG
+                <br />
+                DASH
+              </h1>
+              <NavLink
+                className="col tlines"
+                to="/"
+                style={{ textDecoration: "none" }}
+              >
+                {tlines}
+              </NavLink>
+            </div>
+            <div className="news">
+              {blogs.map((blog, i) => {
+                if (i < DISPLAY_LIMIT_BLOG && i % 2 == 0) {
+                  return (
+                    <div className="row">
+                      <div className="col mx-2 my-2">
+                        <h2>{blog.title}</h2>
+                        <p className="lead py-2">{blog.date}</p>
+                      </div>
+                      {blogs[i + 1] && (
+                        <div className="col mx-2 my-2">
+                          <h2>{blogs[i + 1].title}</h2>
+                          <p className="lead py-2">{blogs[i + 1].date}</p>
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+              })}
+              <NavLink to="/admin/addblog" style={{ textDecoration: "none" }}>
+                <div className="row d-flex flex-column ">
+                  <i className="ibb">
+                    {Plusicon} {HL} ADD BLOG
+                  </i>
+                </div>
+              </NavLink>
+            </div>
+          </section>
+          <section className="portfolio_project_section">
+            <div className="row">
+              <h1 className="section_title col">
+                PROJECT
+                <br />
+                DASH
+              </h1>
+              <NavLink
+                className="col tlines"
+                to="/"
+                style={{ textDecoration: "none" }}
+              >
+                {tlines}
+              </NavLink>
             </div>
             <div className="row">
-              <div className="col mx-2 my-2">
-                <h2>We have a group chat we’re all in it except you</h2>
-                <p className="lead">7 September 2020</p>
-              </div>
-              <div className="col mx-2 my-2">
-                <h2>We have a group chat we’re all in it except you</h2>
-                <p className="lead">7 September 2020</p>
-              </div>
+              {projects.map((project, i) => {
+                if (project.imgs[0] && i < DISPLAY_LIMIT_PROJECT)
+                  return (
+                    <NavLink
+                      to={"/project/" + project._id}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <img
+                        src={project.imgs[0].path_url}
+                        className="d-flex project_image_portfolio"
+                      ></img>
+                    </NavLink>
+                  );
+              })}
             </div>
-            <NavLink to="/admin/addblog" style={{ textDecoration: "none" }}>
+            <NavLink to="/admin/upload" style={{ textDecoration: "none" }}>
               <div className="row d-flex flex-column ">
                 <i className="ibb">
-                  {Plusicon} {HL} ADD BLOG
+                  {Plusicon} {HL} ADD PROJECT
                 </i>
               </div>
             </NavLink>
-          </div>
-        </section>
-        <section className="portfolio_project_section">
-          <div className="row">
-            <h1 className="section_title col">
-              PROJECT
-              <br />
-              DASH
-            </h1>
-            <NavLink
-              className="col tlines"
-              to="/"
-              style={{ textDecoration: "none" }}
-            >
-              {tlines}
-            </NavLink>
-          </div>
-          <div className="row">
-            {projects.map((project, i) => {
-              if (project.imgs[0] && i < DISPLAY_LIMIT_PROJECT)
-                return (
-                  <img
-                    src={project.imgs[0].path_url}
-                    className="d-flex project_image_portfolio"
-                  ></img>
-                );
-            })}
-          </div>
-          <NavLink to="/admin/upload" style={{ textDecoration: "none" }}>
-            <div className="row d-flex flex-column ">
-              <i className="ibb">
-                {Plusicon} {HL} ADD PROJECT
-              </i>
-            </div>
-          </NavLink>
-        </section>
+          </section>
 
-        <button className="btn btn-light my-5" onClick={handleLogout}>
-          Logout
+          <button className="btn btn-light my-5" onClick={handleLogout}>
+            Logout
+          </button>
+        </div>
+      );
+    } else {
+      return <div>Still loading</div>;
+    }
+  } else {
+    return (
+      <div>
+        <h1>ADMIN HAS NO PORTFOLIO</h1>
+        <p>
+          Login as User
+          <br /> or, Go to add designer page
+        </p>
+        <button
+          className="btn btn-success"
+          onClick={() => {
+            navigate("/admin/register");
+          }}
+        >
+          Add Designer
         </button>
       </div>
     );
-  } else {
-    return <div>Still loading</div>;
   }
 };
 

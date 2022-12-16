@@ -30,6 +30,7 @@ function Feed(props) {
       <div>
         {homeProjects.map((project, i) => {
           const isImg = project.imgs.length > 0 ? true : false;
+          const isClickImg = project.imgs.length >= 2 ? true : false;
           return (
             <ContentRec
               prjId={project._id}
@@ -41,6 +42,7 @@ function Feed(props) {
               parag1={project.parag1}
               parag2={project.parag2 ? project.parag2 : ""}
               type={project.cardType}
+              isClickImg={isClickImg}
             />
           );
         })}
