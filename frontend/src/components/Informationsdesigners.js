@@ -1,10 +1,11 @@
 import React from "react";
 import "./Informations.css";
+import "./Informationsdesigners.css";
 
 function Informationsdesigners() {
   return (
     <section className="footer__info">
-      <h2>Lets work together</h2>
+      <h2 className="letswork">Lets work together</h2>
       <p>
         New York
         <br />
@@ -17,7 +18,7 @@ function Informationsdesigners() {
         info@weareelx.com
         <br />
       </p>
-      <div className="made_with">
+      <div className="made_with_dark">
         MADE
         <br />
         WITH
