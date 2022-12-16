@@ -59,7 +59,7 @@ router.get("/get/:id", (req, res) => {
 router.get("/getbyonwer/:id", (req, res) => {
   console.log("API GET api/blogs/getbyowner/:id is reached");
   const ownerID = req.params.id;
-  Blog.find({ owner: ownerID })
+  Blog.find({ author: ownerID })
     .sort({ date: -1 })
     .exec((err, doc) => {
       if (err) {

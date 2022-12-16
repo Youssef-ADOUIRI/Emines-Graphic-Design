@@ -41,7 +41,6 @@ const Register = () => {
 
   useEffect(() => {
     if (success) navigate("/");
-    if (userInfo) navigate("/");
   }, [navigate, userInfo, success]);
   const submitForm = (data) => {
     dispatch(registerUser(data));
