@@ -8,9 +8,16 @@ import News from "../components/News";
 import Parteners from "../components/Parteners";
 import FAQ from "../components/FAQ";
 import Blackbords from "../components/Blackbords";
+import { useDispatch } from "react-redux";
+import { setlight, setdark } from "../reducers/themeReducer";
+import { useEffect } from "react";
 
 function Home() {
   //const HOME_PROJECT_NUMBER = 4;
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setlight());
+  }, []);
 
   return (
     <div className="App">

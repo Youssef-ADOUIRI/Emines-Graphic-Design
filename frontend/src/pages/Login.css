@@ -5,10 +5,12 @@
     bottom: 48px;
     right: 55px;
     left: 55px;
-    border: 5px solid #000000;
+    /*border: 5px solid #000000;*/
+    margin: auto;
     border-radius: 26px;
     background-color: white;
     text-align: start;
+    background-repeat: no-repeat;
 }
 
 .loginSection form {
@@ -19,7 +21,7 @@
     font-weight: 600;
     font-size: 80px;
     line-height: 102px;
-    color: white;
+    color: black;
     margin-top: 100px;
     margin-left: 5rem;
     text-align: start;
@@ -32,12 +34,23 @@
     font-weight: 400;
     font-size: 15px;
     line-height: 27px;
-    background-color: #F3F3F3;
+    background-color: #ececec;
     color: #2D2D2D;
 
     margin-top: 12px;
     text-align: start;
     padding-left: 1em;
+}
+
+.subtitle_login {
+    position: absolute;
+    text-align: start;
+    left: 5rem;
+    bottom: 1em;
+    color: black;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 28px;
 }
 
 .loginSection input::placeholder {

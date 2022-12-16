@@ -11,6 +11,7 @@ function Navbar() {
   const { isAuthenticated, userInfo, userToken } = useSelector(
     (state) => state.auth
   );
+  const { light } = useSelector((state) => state.light);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   //using the navbar to manage token
@@ -42,9 +43,19 @@ function Navbar() {
   }, [userToken]);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light">
+    <nav
+      className="navbar navbar-expand-lg navbar-light"
+      style={{
+        backgroundColor: light ? "white" : "#000000",
+      }}
+    >
       <div className="container-fluid">
-        <NavLink to="/" id="LogoText" className="navbar-brand">
+        <NavLink
+          to="/"
+          id="LogoText"
+          className="navbar-brand"
+          style={{ color: light ? "#000000" : "white" }}
+        >
           ELX
         </NavLink>
         <button
@@ -70,12 +81,17 @@ function Navbar() {
                 to="/#footer_section_id"
                 className="nav-link active"
                 aria-current="page"
+                style={{ color: light ? "#000000" : "white" }}
               >
                 About
               </NavLink>
             </li>
             <li className="nav-item p-2">
-              <NavLink to="/admin" className="nav-link active">
+              <NavLink
+                to="/admin"
+                className="nav-link active"
+                style={{ color: light ? "#000000" : "white" }}
+              >
                 Portfolio
               </NavLink>
             </li>
@@ -85,13 +101,21 @@ function Navbar() {
                 window.location.replace("/#footer_section_id");
               }}
             >
-              <NavLink to="/" className="nav-link active">
+              <NavLink
+                to="/"
+                className="nav-link active"
+                style={{ color: light ? "#000000" : "white" }}
+              >
                 Contact
               </NavLink>
             </li>
             {!isAuthenticated && (
               <li className="nav-item ms-auto p-2">
-                <NavLink to="/login" className="nav-link active">
+                <NavLink
+                  to="/login"
+                  className="nav-link active"
+                  style={{ color: light ? "#000000" : "white" }}
+                >
                   Login
                 </NavLink>
               </li>

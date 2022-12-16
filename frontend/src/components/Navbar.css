@@ -11,14 +11,11 @@
     align-items: center;
     text-decoration-line: underline;
 
-    color: #000000;
     margin-left: 10px;
 
 }
 
-.navbar {
-    background-color: transparent;
-}
+
 
 .nav-list {
     font-family: 'Epilogue';

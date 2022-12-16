@@ -4,6 +4,9 @@ import "./Project.css";
 import Informationsdesigners from "../components/Informationsdesigners";
 import Contact from "../components/Contact";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setlight, setdark } from "../reducers/themeReducer";
+
 
 const tlines = (
   <svg
@@ -23,8 +26,10 @@ function Project() {
   const api_url = "/api/projects/get/" + output.prjId;
   const [loading, setLoading] = useState(true);
   const [project, setProject] = useState({});
-
+  const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(setdark());
+
     const getProject = async () => {
       setLoading(true);
       const resp = await axios

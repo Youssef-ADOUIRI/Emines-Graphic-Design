@@ -1,10 +1,13 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import "./UploadBlog.css";
 import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setlight, setdark } from "../reducers/themeReducer";
+
 
 const tlines = (
   <svg
@@ -30,12 +33,15 @@ const tlines = (
 const UploadBlog = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { userInfo } = useSelector((state) => state.auth);
+  useEffect(() => {
+    dispatch(setdark());
+  }, []);
   const submitForm = (data) => {
     const api_url = "http://localhost:5000/api/blogs/add";
 
     data.author = userInfo.id;
-    console.log(data);
     axios
       .post(api_url, data)
       .then((res) => {

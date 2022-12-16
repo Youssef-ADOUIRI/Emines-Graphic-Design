@@ -1,10 +1,13 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import "./UploadProject.css";
 import { useNavigate, NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setlight, setdark } from "../reducers/themeReducer";
+
 
 const tlines = (
   <svg
@@ -26,6 +29,7 @@ const UploadProject = () => {
   const { userInfo, error } = useSelector((state) => state.auth);
   const err = useSelector((state) => state.err);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [errors, setError] = useState({});
   const onChangeImgs = (e) => {
     e.preventDefault();
@@ -40,6 +44,9 @@ const UploadProject = () => {
     setError({});
     reset();
   };
+  useEffect(() => {
+    dispatch(setdark());
+  }, []);
   const submitForm = (data) => {
     const form = new FormData();
     Object.keys(data).map((key, index) => {

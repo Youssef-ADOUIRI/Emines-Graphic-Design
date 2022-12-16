@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./FAQ.css";
-import { motion } from "framer-motion";
+
 const Plusicon = (
   <svg
     className="plus_icon"

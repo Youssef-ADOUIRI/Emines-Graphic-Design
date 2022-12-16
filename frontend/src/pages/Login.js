@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../actions/authActions";
 import { useForm } from "react-hook-form";
+import { setlight, setdark } from "../reducers/themeReducer";
 
 const Login = () => {
   const { loading, userInfo, error, success, isAuthenticated } = useSelector(
@@ -24,7 +25,9 @@ const Login = () => {
       navigate("/admin");
     }
   }, [navigate, userInfo]);
-
+  useEffect(() => {
+    dispatch(setlight());
+  }, []);
   const submitForm = (data) => {
     dispatch(loginUser(data));
   };
@@ -67,7 +70,13 @@ const Login = () => {
           placeholder="Password"
         ></input>
 
-        <button type="submit" disabled={loading}>
+        <p className="subtitle_login">
+          ELX is a creative design studio based in Rabat
+          <br />
+          and Founded in 2020 by El Houssaine CHAHBOUN.
+        </p>
+
+        <button type="submit" className="btn btn-success" disabled={loading}>
           <b>Log in</b>
         </button>
       </form>

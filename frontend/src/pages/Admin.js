@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../reducers/authReducers";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
+import { setlight, setdark } from "../reducers/themeReducer";
 
 const tlines = (
   <svg
@@ -54,6 +55,7 @@ const Admin = () => {
   const DISPLAY_LIMIT_BLOG = 6;
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const { userInfo } = useSelector((state) => state.auth);
   const handleLogout = () => {
     dispatch(logoutUser());
@@ -64,8 +66,9 @@ const Admin = () => {
   const [blogs, setBlogs] = useState([]);
   const api_url_blog = "/api/blogs/getbyonwer/" + userInfo.id;
   const api_url_project = "/api/projects/getbyowner/" + userInfo.id;
-  console.log(userInfo.id);
+
   useEffect(() => {
+    dispatch(setdark());
     const getProject = async () => {
       setLoading(true);
       const resp = await axios
