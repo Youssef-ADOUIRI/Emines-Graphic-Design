@@ -39,14 +39,16 @@ const Register = () => {
   };
   const redirectPath = location.state?.path || "/";
 
-  useEffect(() => {});
+  useEffect(() => {
+    if (success) navigate("/");
+    if (userInfo) navigate("/");
+  }, [navigate, userInfo, success]);
   const submitForm = (data) => {
     dispatch(registerUser(data));
   };
 
   return (
     <div className="add_designer_section">
-      {error && <span style={{ color: "red" }}>{error}</span>}
       <div className="row ">
         <h1 className="section_title col">
           Admin
@@ -75,6 +77,7 @@ const Register = () => {
               required
               id="name"
             />
+            {err.name && <span style={{ color: "red" }}>{err.name}</span>}
           </div>
           <div
             className="add_designer_input right_side_form col d-flex flex-column"
@@ -106,6 +109,7 @@ const Register = () => {
               placeholder="email"
               {...register("email")}
             />
+            {err.email && <span style={{ color: "red" }}>{err.email}</span>}
           </div>
           <div
             className="add_designer_input right_side_form col d-flex flex-column"
@@ -129,12 +133,15 @@ const Register = () => {
           >
             <label htmlFor="password">PASSWORD</label>
             <input
-              type='password'
+              type="password"
               placeholder="type"
               {...register("password")}
               required
               id="password"
             />
+            {err.password && (
+              <span style={{ color: "red" }}>{err.password}</span>
+            )}
           </div>
           <div
             className="add_designer_input right_side_form col d-flex flex-column"
@@ -142,23 +149,29 @@ const Register = () => {
           >
             <label htmlFor="password2">CONFIRM PASSWORD</label>
             <input
-              type='password'
+              type="password"
               placeholder="type"
               {...register("password2")}
               required
               id="password2"
             />
+            {err.password2 && (
+              <span style={{ color: "red" }}>{err.password2}</span>
+            )}
           </div>
         </div>
         <div className="d-grid gap-2 d-md-flex justify-content-md-end">
           <button
-            className="btn me-md-2"
+            className="btn me-md-2 btn_clr"
             onClick={OnClearAll}
             disabled={loading}
+            type="button"
           >
             Clear All
           </button>
-          <button className="bg-success">Add Designer</button>
+          <button type="submit" className="bg-success">
+            Add Designer
+          </button>
         </div>
       </form>
     </div>

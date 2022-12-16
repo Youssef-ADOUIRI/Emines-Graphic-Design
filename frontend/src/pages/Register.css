@@ -46,6 +46,11 @@
     margin-top: 20px;
     padding: 12px;
     text-align: start !important;
+
+}
+
+.add_designer_section .btn_clr {
+    color: white;
 }
 
 .add_designer_section label {

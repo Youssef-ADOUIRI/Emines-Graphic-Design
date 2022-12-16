@@ -64,7 +64,7 @@ const Admin = () => {
   const [blogs, setBlogs] = useState([]);
   const api_url_blog = "/api/blogs/getbyonwer/" + userInfo.id;
   const api_url_project = "/api/projects/getbyowner/" + userInfo.id;
-
+  console.log(userInfo.id);
   useEffect(() => {
     const getProject = async () => {
       setLoading(true);
@@ -203,12 +203,16 @@ const Admin = () => {
           <br /> or, Go to add designer page
         </p>
         <button
-          className="btn btn-success"
+          className="btn btn-success mx-2"
           onClick={() => {
             navigate("/admin/register");
           }}
         >
           Add Designer
+        </button>
+        or
+        <button className="btn btn-secondary mx-2" onClick={handleLogout}>
+          Logout
         </button>
       </div>
     );

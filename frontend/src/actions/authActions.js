@@ -7,13 +7,15 @@ import { setErrors } from "../reducers/errorReducers";
 // Register User
 export const registerUser = createAsyncThunk(
   "user/register",
-  async (userData, { rejectWithValue }) => {
+  async (userData, { rejectWithValue, dispatch }) => {
     try {
-      await axios
-        .post("/api/users/register", userData)
-        .then((res) => console.log(res));
+      await axios.post("/api/users/register", userData).then((res) => {
+        console.log(res);
+        dispatch(setErrors({}));
+      });
     } catch (error) {
       // return custom error message from API if any
+      dispatch(setErrors(error.response.data));
       if (error.response && error.response.data.message) {
         return rejectWithValue(error.response.data.message);
       } else {
