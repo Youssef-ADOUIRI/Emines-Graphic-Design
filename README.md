@@ -1,6 +1,6 @@
 # Emines-Graphic-Design
 
-Dynamic website of the EMINES Graphic Design club with an administration interface
+Dynamic website of the EMINES Graphic Design club with an administration interface.
 Public Portfolio for EGD Club Student's Projects
 
 ## Setting up the website
